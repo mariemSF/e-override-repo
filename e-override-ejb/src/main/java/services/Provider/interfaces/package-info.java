@@ -5,4 +5,4 @@
  * @author mariem
  *
  */
-package services.module2.interfaces;
+package services.Provider.interfaces;
