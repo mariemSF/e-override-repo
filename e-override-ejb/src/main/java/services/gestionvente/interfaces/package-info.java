@@ -5,4 +5,4 @@
  * @author mariem
  *
  */
-package services.module1.interfaces;
+package services.gestionvente.interfaces;
