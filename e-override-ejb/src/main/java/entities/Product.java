@@ -63,6 +63,7 @@ public class Product implements Serializable {
 	public void setProvider(Provider provider) {
 		this.provider = provider;
 	}
+	@ManyToMany
 	public List<Command> getCmds() {
 		return cmds;
 	}

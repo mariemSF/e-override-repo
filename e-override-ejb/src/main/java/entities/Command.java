@@ -3,6 +3,8 @@ package entities;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -21,6 +23,7 @@ public class Command implements Serializable {
 	private Integer TotalPrice;
 	private static final long serialVersionUID = 1L;
 	private Client client;
+	private List<Product> prds;
 
 	public Command() {
 		super();
@@ -67,6 +70,13 @@ public class Command implements Serializable {
 	}
 	public void setClient(Client client) {
 		this.client = client;
+	}
+	@ManyToMany(mappedBy="cmds")
+	public List<Product> getPrds() {
+		return prds;
+	}
+	public void setPrds(List<Product> prds) {
+		this.prds = prds;
 	}
    
 }
