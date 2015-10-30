@@ -12,10 +12,12 @@ import entities.Provider;
 @Remote
 public interface GestionCrudserviceRemote {
 	
-	Client loginClient(String name, String password);
-	Provider loginProvider(String name, String password);
+	Client loginClient(String login, String password);
+	Provider loginProvider(String login, String password);
 	Boolean addProduct(Product produit);
 	List<Product> findAllProducts();
 	List<Provider> findAllProviders();
 	List<Client> findAllClients();
+	List<Product> findAllProductsByCategory(String pCategory);
+	List<Product> findAllProductsByProviderName(String pName);
 }
