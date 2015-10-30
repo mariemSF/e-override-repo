@@ -17,14 +17,23 @@ public class Provider implements Serializable {
 
 	
 	private Integer id;
-	private String Name;
-	private String Address;
+	private String name;
+	private String login;
+	private String password;
+	private String address;
 	private static final long serialVersionUID = 1L;
 	private List<Product> products;
 
 	public Provider() {
 		super();
 	}   
+	public Provider(String nom, String login, String password) {
+		super();
+		this.name = nom;
+		this.login = login;
+		this.password = password;
+	}
+	
 	@Id    
 	public Integer getId() {
 		return this.id;
@@ -34,18 +43,18 @@ public class Provider implements Serializable {
 		this.id = id;
 	}   
 	public String getName() {
-		return this.Name;
+		return this.name;
 	}
 
 	public void setName(String Name) {
-		this.Name = Name;
+		this.name = Name;
 	}   
 	public String getAddress() {
-		return this.Address;
+		return this.address;
 	}
 
 	public void setAddress(String Address) {
-		this.Address = Address;
+		this.address = Address;
 	}
 	@OneToMany(mappedBy="provider")
 	public List<Product> getProducts() {
@@ -53,6 +62,18 @@ public class Provider implements Serializable {
 	}
 	public void setProducts(List<Product> products) {
 		this.products = products;
+	}
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
    
 }

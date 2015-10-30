@@ -17,10 +17,10 @@ public class Command implements Serializable {
 
 	
 	private Integer id;
-	private Integer Quantity;
-	private Date DateCmd;
-	private Date DateLivraison;
-	private Integer TotalPrice;
+	private Integer quantity;
+	private Date dateCmd;
+	private Date dateLivraison;
+	private Integer totalPrice;
 	private static final long serialVersionUID = 1L;
 	private Client client;
 	private List<Product> prds;
@@ -37,32 +37,32 @@ public class Command implements Serializable {
 		this.id = id;
 	}   
 	public Integer getQuantity() {
-		return this.Quantity;
+		return this.quantity;
 	}
 
 	public void setQuantity(Integer Quantity) {
-		this.Quantity = Quantity;
+		this.quantity = Quantity;
 	}   
 	public Date getDateCmd() {
-		return this.DateCmd;
+		return this.dateCmd;
 	}
 
 	public void setDateCmd(Date DateCmd) {
-		this.DateCmd = DateCmd;
+		this.dateCmd = DateCmd;
 	}   
 	public Date getDateLivraison() {
-		return this.DateLivraison;
+		return this.dateLivraison;
 	}
 
 	public void setDateLivraison(Date DateLivraison) {
-		this.DateLivraison = DateLivraison;
+		this.dateLivraison = DateLivraison;
 	}   
 	public Integer getTotalPrice() {
-		return this.TotalPrice;
+		return this.totalPrice;
 	}
 
 	public void setTotalPrice(Integer TotalPrice) {
-		this.TotalPrice = TotalPrice;
+		this.totalPrice = TotalPrice;
 	}
 	@ManyToOne
 	public Client getClient() {

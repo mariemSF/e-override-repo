@@ -17,9 +17,9 @@ public class Product implements Serializable {
 
 	
 	private Integer id;
-	private String Type;
-	private Integer Price;
-	private Integer Quantity;
+	private String category;
+	private Integer price;
+	private Integer quantity;
 	private static final long serialVersionUID = 1L;
 	private Provider provider;
 	private List<Command> cmds;
@@ -36,25 +36,25 @@ public class Product implements Serializable {
 		this.id = id;
 	}   
 	public String getType() {
-		return this.Type;
+		return this.category;
 	}
 
 	public void setType(String Type) {
-		this.Type = Type;
+		this.category = Type;
 	}   
 	public Integer getPrice() {
-		return this.Price;
+		return this.price;
 	}
 
 	public void setPrice(Integer Price) {
-		this.Price = Price;
+		this.price = Price;
 	}   
 	public Integer getQuantity() {
-		return this.Quantity;
+		return this.quantity;
 	}
 
 	public void setQuantity(Integer Quantity) {
-		this.Quantity = Quantity;
+		this.quantity = Quantity;
 	}
 	@ManyToOne
 	public Provider getProvider() {
