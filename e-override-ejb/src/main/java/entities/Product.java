@@ -35,12 +35,12 @@ public class Product implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}   
-	public String getType() {
+	public String getCategory() {
 		return this.category;
 	}
 
-	public void setType(String Type) {
-		this.category = Type;
+	public void setCategory(String Category) {
+		this.category = Category;
 	}   
 	public Integer getPrice() {
 		return this.price;
