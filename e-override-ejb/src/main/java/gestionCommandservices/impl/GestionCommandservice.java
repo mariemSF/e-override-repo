@@ -41,7 +41,7 @@ public class GestionCommandservice implements GestionCommandserviceRemote, Gesti
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Command> findAllCommandsByCategory(String ProductCategory) {
-		//List<Product> product = findAllProductsByCategory(product.);
+		//List<Product> product = findAllProductsByCategory(Product.getCategory());
 		//teams.add(team);
 		String jpql = "select c from Command c where c.product.category=:param";
 		Query query = entityManager.createQuery(jpql);
