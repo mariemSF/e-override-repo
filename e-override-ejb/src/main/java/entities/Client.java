@@ -18,6 +18,7 @@ public class Client implements Serializable {
 	
 	private Integer id;
 	private String name;
+	private String lastname;
 	private String login;
 	private String password;
 	private String address;
@@ -85,6 +86,12 @@ public class Client implements Serializable {
 	}
 	public void setCommands(List<Order> orders) {
 		this.orders = orders;
+	}
+	public String getLastname() {
+		return lastname;
+	}
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 		   
 }
