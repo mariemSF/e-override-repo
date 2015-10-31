@@ -18,8 +18,8 @@ public class Order implements Serializable {
 	
 	private Integer id;
 	private Integer quantity;
-	private Date dateCmd;
-	private Date dateLivraison;
+	private Date dateOrder;
+	private Date dateDelivery;
 	private Integer totalPrice;
 	private static final long serialVersionUID = 1L;
 	private Client client;
@@ -43,19 +43,19 @@ public class Order implements Serializable {
 	public void setQuantity(Integer Quantity) {
 		this.quantity = Quantity;
 	}   
-	public Date getDateCmd() {
-		return this.dateCmd;
+	public Date getDateOrder() {
+		return this.dateOrder;
 	}
 
-	public void setDateCmd(Date DateCmd) {
-		this.dateCmd = DateCmd;
+	public void setDateOrder(Date DateOrder) {
+		this.dateOrder = DateOrder;
 	}   
-	public Date getDateLivraison() {
-		return this.dateLivraison;
+	public Date getDateDelivery() {
+		return this.dateDelivery;
 	}
 
-	public void setDateLivraison(Date DateLivraison) {
-		this.dateLivraison = DateLivraison;
+	public void setDateDelivery(Date DateDelivery) {
+		this.dateDelivery = DateDelivery;
 	}   
 	public Integer getTotalPrice() {
 		return this.totalPrice;

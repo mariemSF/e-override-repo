@@ -7,8 +7,12 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class OrderLineId implements Serializable{
+	/**
+	 * 
+	 */
 	private Integer idProduct;
 	private Integer idOrder;
+	private static final long serialVersionUID = 1L;
 	
 	public OrderLineId() {
 		// TODO Auto-generated constructor stub
@@ -18,14 +22,14 @@ public class OrderLineId implements Serializable{
 		return idProduct;
 	}
 	public void setIdProduct(Integer idProduct) {
-		idProduct = idProduct;
+		this.idProduct = idProduct;
 	}
 	
 	public Integer getIdOrder() {
 		return idOrder;
 	}
 	public void setIdOrder(Integer idOrder) {
-		idOrder = idOrder;
+		this.idOrder = idOrder;
 	}
 	@Override
 	public int hashCode() {

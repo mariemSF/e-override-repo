@@ -3,6 +3,6 @@ package OrderManagementServices.interfaces;
 import javax.ejb.Local;
 
 @Local
-public interface GestionCommandserviceLocal {
+public interface OrderManagementServicesLocal {
 
 }
