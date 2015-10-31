@@ -23,7 +23,7 @@ public class Client implements Serializable {
 	private String address;
 	private Integer phoneNumber;
 	private static final long serialVersionUID = 1L;
-	private List<Command> commands;
+	private List<Order> orders;
 
 	public Client() {
 		super();
@@ -80,11 +80,11 @@ public class Client implements Serializable {
 		this.phoneNumber = PhoneNumber;
 	}
 	@OneToMany(mappedBy="client")
-	public List<Command> getCommands() {
-		return commands;
+	public List<Order> getCommands() {
+		return orders;
 	}
-	public void setCommands(List<Command> commands) {
-		this.commands = commands;
+	public void setCommands(List<Order> orders) {
+		this.orders = orders;
 	}
 		   
 }

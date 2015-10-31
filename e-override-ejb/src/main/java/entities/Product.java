@@ -22,7 +22,7 @@ public class Product implements Serializable {
 	private Integer quantity;
 	private static final long serialVersionUID = 1L;
 	private Provider provider;
-	private List<Command> cmds;
+	private List <OrderLine> orderLines;
 
 	public Product() {
 		super();
@@ -63,12 +63,12 @@ public class Product implements Serializable {
 	public void setProvider(Provider provider) {
 		this.provider = provider;
 	}
-	@ManyToMany
-	public List<Command> getCmds() {
-		return cmds;
+	@OneToMany(mappedBy="product")
+	public List <OrderLine> getOrderlines() {
+		return orderLines;
 	}
-	public void setCmds(List<Command> cmds) {
-		this.cmds = cmds;
+	public void setOrderlines(List <OrderLine> orderlines) {
+		this.orderLines = orderlines;
 	}
-   
+	   
 }

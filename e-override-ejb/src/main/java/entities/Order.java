@@ -13,7 +13,7 @@ import javax.persistence.*;
  */
 @Entity
 
-public class Command implements Serializable {
+public class Order implements Serializable {
 
 	
 	private Integer id;
@@ -23,9 +23,9 @@ public class Command implements Serializable {
 	private Integer totalPrice;
 	private static final long serialVersionUID = 1L;
 	private Client client;
-	private List<Product> prds;
-
-	public Command() {
+	private List<OrderLine> orderLines;
+	
+	public Order() {
 		super();
 	}   
 	@Id    
@@ -71,12 +71,13 @@ public class Command implements Serializable {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	@ManyToMany(mappedBy="cmds")
-	public List<Product> getPrds() {
-		return prds;
+	@OneToMany(mappedBy="order")
+	public List<OrderLine> getOrderLines() {
+		return orderLines;
 	}
-	public void setPrds(List<Product> prds) {
-		this.prds = prds;
+	public void setOrderLines(List<OrderLine> orderLines) {
+		this.orderLines = orderLines;
 	}
+	
    
 }

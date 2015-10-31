@@ -1,17 +1,18 @@
-package gestionCrudservices.impl;
+package CrudManagementServices.impl;
 
 import java.util.List;
 
 import entities.Client;
 import entities.Product;
 import entities.Provider;
-import gestionCrudservices.interfaces.GestionCrudserviceLocal;
-import gestionCrudservices.interfaces.GestionCrudserviceRemote;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+
+import CrudManagementServices.interfaces.GestionCrudserviceLocal;
+import CrudManagementServices.interfaces.GestionCrudserviceRemote;
 
 /**
  * Session Bean implementation class GestionCrudservice

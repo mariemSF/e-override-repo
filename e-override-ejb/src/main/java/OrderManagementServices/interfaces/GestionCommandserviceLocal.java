@@ -1,4 +1,4 @@
-package gestionCommandservices.interfaces;
+package OrderManagementServices.interfaces;
 
 import javax.ejb.Local;
 

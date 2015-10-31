@@ -1,4 +1,4 @@
-package gestionCrudservices.interfaces;
+package CrudManagementServices.interfaces;
 
 import java.util.List;
 

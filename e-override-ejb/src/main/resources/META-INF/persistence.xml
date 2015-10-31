@@ -3,9 +3,11 @@
 	<persistence-unit name="e-override-ejb">
 	<jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
 	<class>entities.Client</class>
-	<class>entities.Provider</class>
+	<class>entities.Order</class>
+	<class>entities.OrderLine</class>
+	<class>entities.OrderLineId</class>
 	<class>entities.Product</class>
-	<class>entities.Command</class>
+	<class>entities.Provider</class>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="create" />
 			<property name="hibernate.show_sql" value="true"/>
