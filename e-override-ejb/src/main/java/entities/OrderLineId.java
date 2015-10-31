@@ -24,7 +24,7 @@ public class OrderLineId implements Serializable{
 	public void setIdProduct(Integer idProduct) {
 		this.idProduct = idProduct;
 	}
-	
+	@Column(name="id_order")
 	public Integer getIdOrder() {
 		return idOrder;
 	}
