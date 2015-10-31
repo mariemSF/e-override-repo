@@ -46,7 +46,7 @@ public class OrderLine implements Serializable {
 		this.orderlineid = orderlineid;
 	}
 	@ManyToOne
-	@JoinColumn(name="idProduct",referencedColumnName="id",insertable=false,updatable=false)
+	@JoinColumn(name="id_product",referencedColumnName="id",insertable=false,updatable=false)
 	public Product getProduct() {
 		return product;
 	}
@@ -54,7 +54,7 @@ public class OrderLine implements Serializable {
 		this.product = product;
 	}
 	@ManyToOne
-	@JoinColumn(name="idOrder",referencedColumnName="id",insertable=false,updatable=false)
+	@JoinColumn(name="id_order",referencedColumnName="id",insertable=false,updatable=false)
 	public Order getOrder() {
 		return order;
 	}

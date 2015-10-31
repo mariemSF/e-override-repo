@@ -63,7 +63,6 @@ public class OrderLineId implements Serializable{
 	}
 	
 	public OrderLineId(Integer idProduct, Integer idOrder) {
-		// TODO Auto-generated constructor stub
 		super();
 		this.idProduct = idProduct;
 		this.idOrder = idOrder;
