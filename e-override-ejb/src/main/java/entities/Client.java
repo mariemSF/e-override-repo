@@ -18,7 +18,6 @@ public class Client implements Serializable {
 	
 	private Integer id;
 	private String name;
-	private String lastname;
 	private String login;
 	private String password;
 	private String address;
@@ -81,17 +80,11 @@ public class Client implements Serializable {
 		this.phoneNumber = PhoneNumber;
 	}
 	@OneToMany(mappedBy="client")
-	public List<Order> getCommands() {
+	public List<Order> getOrder() {
 		return orders;
 	}
-	public void setCommands(List<Order> orders) {
+	public void setOrder(List<Order> orders) {
 		this.orders = orders;
-	}
-	public String getLastname() {
-		return lastname;
-	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
 	}
 		   
 }
