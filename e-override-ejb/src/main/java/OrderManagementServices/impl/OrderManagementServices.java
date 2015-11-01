@@ -3,8 +3,11 @@ package OrderManagementServices.impl;
 import java.util.Date;
 import java.util.List;
 
+import entities.Department;
 import entities.Order;
+import entities.Panier;
 import entities.Product;
+import entities.Team;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -89,6 +92,23 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", ClientName);
 		return query.getResultList();
+	}
+	public List<Product> findAllProductsByPanierId(Integer id){
+		Product
+	}
+	
+	@Override
+	public Boolean ajouterProduitAuPanier(Product product, Panier panier) {
+		Boolean b = false;
+		try {
+			List<Product> products = findAllTeamsByDepartmentId(panier.getId());
+			products.add(product);
+			panier.linkProductsToPanier(products);
+			entityManager.persist(panier);
+			b = true;
+		} catch (Exception e) {
+		}
+		return b;
 	}
 
 }

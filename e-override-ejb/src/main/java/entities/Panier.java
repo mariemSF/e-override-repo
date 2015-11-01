@@ -16,7 +16,7 @@ public class Panier implements Serializable {
 
 	
 	private Integer id;
-	private List<OrderLine> orderLines;
+	//private List<OrderLine> orderLines;
 	private List<Product> products;
 	private Client client;
 	
@@ -34,12 +34,12 @@ public class Panier implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public List<OrderLine> getOrderLines() {
+	/*public List<OrderLine> getOrderLines() {
 		return orderLines;
 	}
 	public void setOrderLines(List<OrderLine> orderLines) {
 		this.orderLines = orderLines;
-	}
+	}*/
 	@OneToOne
 	public Client getClient() {
 		return client;
@@ -55,12 +55,12 @@ public class Panier implements Serializable {
 		this.products = products;
 	}
 
-	/*public void linkProductsToPanier(List<Product> products) {
-		this.orderLines = products;
+	public void linkProductsToPanier(List<Product> products) {
+		this.products = products;
 		for (Product p : products) {
-			//p.se
+			p.setPanier(this);
 		}
-	}*/
+	}
 	
    
 }
