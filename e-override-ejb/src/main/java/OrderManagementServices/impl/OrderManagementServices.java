@@ -128,4 +128,13 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Order> findAllOrdersByProductId(Integer idProduct) {
+		String jpql = "select o from OrderLine o where o.id_product=:param";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", idProduct);
+		return query.getResultList();
+	}
+
 }
