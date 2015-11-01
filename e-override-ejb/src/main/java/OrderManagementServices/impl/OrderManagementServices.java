@@ -3,11 +3,9 @@ package OrderManagementServices.impl;
 import java.util.Date;
 import java.util.List;
 
-import entities.Department;
 import entities.Order;
 import entities.Panier;
 import entities.Product;
-import entities.Team;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -93,15 +91,23 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 		query.setParameter("param", ClientName);
 		return query.getResultList();
 	}
-	public List<Product> findAllProductsByPanierId(Integer id){
-		Product
-	}
 	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Product> findAllProductsByPanierId(Integer idPanier) {
+		Panier panier = entityManager.find(Panier.class,
+				idPanier);
+		String jpql = "select p from Products p where p.panier=:param";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", panier);
+		return query.getResultList();
+	}
+
 	@Override
 	public Boolean ajouterProduitAuPanier(Product product, Panier panier) {
 		Boolean b = false;
 		try {
-			List<Product> products = findAllTeamsByDepartmentId(panier.getId());
+			List<Product> products = findAllProductsByPanierId(panier.getId());
 			products.add(product);
 			panier.linkProductsToPanier(products);
 			entityManager.persist(panier);
