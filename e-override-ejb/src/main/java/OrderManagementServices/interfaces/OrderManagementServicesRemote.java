@@ -16,4 +16,5 @@ public interface OrderManagementServicesRemote {
 	List<Order> findAllOrdersByDeliveryDate(Date DeliveryDate);
 	List<Product> findAllOrdersByClientName(String ClientName);
 	List<Product> findAllProductsByIdOrder(Integer OrderId);
+	
 }

@@ -6,6 +6,7 @@
 	<class>entities.Order</class>
 	<class>entities.OrderLine</class>
 	<class>entities.OrderLineId</class>
+	<class>entities.Panier</class>
 	<class>entities.Product</class>
 	<class>entities.Provider</class>
 		<properties>

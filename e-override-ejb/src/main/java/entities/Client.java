@@ -25,6 +25,7 @@ public class Client implements Serializable {
 	private static final long serialVersionUID = 1L;
 	//private List<Order> orders;
 	private List<Order> orders;
+	
 
 	public Client() {
 		super();
@@ -94,5 +95,6 @@ public class Client implements Serializable {
 	public void setCommands(List<Order> orders) {
 		this.orders = orders;
 	}
+
 		   
 }

@@ -23,6 +23,7 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Provider provider;
 	private List <OrderLine> orderLines;
+	
 
 	public Product() {
 		super();
@@ -70,5 +71,7 @@ public class Product implements Serializable {
 	public void setOrderlines(List <OrderLine> orderlines) {
 		this.orderLines = orderlines;
 	}
+	
+	
 	   
 }
