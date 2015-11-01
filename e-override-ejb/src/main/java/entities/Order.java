@@ -1,6 +1,7 @@
 package entities;
 
 import java.io.Serializable;
+import java.lang.Float;
 import java.lang.Integer;
 import java.util.Date;
 import java.util.List;
@@ -8,23 +9,24 @@ import java.util.List;
 import javax.persistence.*;
 
 /**
- * Entity implementation class for Entity: Command
+ * Entity implementation class for Entity: Order
  *
  */
 @Entity
-
+@Table(name="t_order")
 public class Order implements Serializable {
 
 	
 	private Integer id;
+	private Float totalPrice;
 	private Integer quantity;
 	private Date dateOrder;
 	private Date dateDelivery;
-	private Integer totalPrice;
 	private static final long serialVersionUID = 1L;
 	private Client client;
 	private List<OrderLine> orderLines;
 	
+
 	public Order() {
 		super();
 	}   
@@ -36,33 +38,31 @@ public class Order implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}   
+	public Float getTotalPrice() {
+		return this.totalPrice;
+	}
+
+	public void setTotalPrice(Float TotalPrice) {
+		this.totalPrice = TotalPrice;
+	}   
 	public Integer getQuantity() {
 		return this.quantity;
 	}
 
 	public void setQuantity(Integer Quantity) {
 		this.quantity = Quantity;
-	}   
+	}
 	public Date getDateOrder() {
-		return this.dateOrder;
+		return dateOrder;
 	}
-
-	public void setDateOrder(Date DateOrder) {
-		this.dateOrder = DateOrder;
-	}   
+	public void setDateOrder(Date dateOrder) {
+		this.dateOrder = dateOrder;
+	}
 	public Date getDateDelivery() {
-		return this.dateDelivery;
+		return dateDelivery;
 	}
-
-	public void setDateDelivery(Date DateDelivery) {
-		this.dateDelivery = DateDelivery;
-	}   
-	public Integer getTotalPrice() {
-		return this.totalPrice;
-	}
-
-	public void setTotalPrice(Integer TotalPrice) {
-		this.totalPrice = TotalPrice;
+	public void setDateDelivery(Date dateDelivery) {
+		this.dateDelivery = dateDelivery;
 	}
 	@ManyToOne
 	public Client getClient() {
@@ -78,6 +78,5 @@ public class Order implements Serializable {
 	public void setOrderLines(List<OrderLine> orderLines) {
 		this.orderLines = orderLines;
 	}
-	
-   
+		
 }

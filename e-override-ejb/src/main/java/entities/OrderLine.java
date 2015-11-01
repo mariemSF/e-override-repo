@@ -6,7 +6,7 @@ import java.lang.Integer;
 import javax.persistence.*;
 
 /**
- * Entity implementation class for Entity: LigneCmd
+ * Entity implementation class for Entity: OrderLine
  *
  */
 @Entity
@@ -45,30 +45,32 @@ public class OrderLine implements Serializable {
 	public void setOrderlineid(OrderLineId orderlineid) {
 		this.orderlineid = orderlineid;
 	}
-	@ManyToOne
+	public OrderLine(Integer quantity, Float totalPrice, Product product,
+			Order order) {
+		//super();
+		this.quantity = quantity;
+		this.totalPrice = totalPrice;
+		this.product = product;
+		this.order = order;
+		this.orderlineid=new OrderLineId(product.getId(), order.getId());
+	}
+	
 	@JoinColumn(name="id_product",referencedColumnName="id",insertable=false,updatable=false)
+	@ManyToOne
 	public Product getProduct() {
 		return product;
 	}
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	@ManyToOne
+	
 	@JoinColumn(name="id_order",referencedColumnName="id",insertable=false,updatable=false)
+	@ManyToOne
 	public Order getOrder() {
 		return order;
 	}
-	public void setOrder(Order order) {
+	public void setorder(Order order) {
 		this.order = order;
-	}
-	public OrderLine(Integer quantity, Float totalPrice, Product product,
-			Order order) {
-		super();
-		this.quantity = quantity;
-		this.totalPrice = totalPrice;
-		this.product = product;
-		this.order = order;
-		this.orderlineid=new OrderLineId(product.getId(), order.getId());
 	}
 	
    

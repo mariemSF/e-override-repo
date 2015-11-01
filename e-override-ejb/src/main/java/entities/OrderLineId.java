@@ -63,7 +63,7 @@ public class OrderLineId implements Serializable{
 	}
 	
 	public OrderLineId(Integer idProduct, Integer idOrder) {
-		super();
+		//super();
 		this.idProduct = idProduct;
 		this.idOrder = idOrder;
 	}

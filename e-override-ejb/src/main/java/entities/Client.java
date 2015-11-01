@@ -23,13 +23,14 @@ public class Client implements Serializable {
 	private String address;
 	private Integer phoneNumber;
 	private static final long serialVersionUID = 1L;
+	//private List<Order> orders;
 	private List<Order> orders;
 
 	public Client() {
 		super();
 	}   
 	public Client(String nom, String login, String password) {
-		super();
+		//super();
 		this.name = nom;
 		this.login = login;
 		this.password = password;
@@ -79,11 +80,18 @@ public class Client implements Serializable {
 	public void setPhoneNumber(Integer PhoneNumber) {
 		this.phoneNumber = PhoneNumber;
 	}
-	@OneToMany(mappedBy="client")
+	/*@OneToMany(mappedBy="client")
 	public List<Order> getOrder() {
 		return orders;
 	}
 	public void setOrder(List<Order> orders) {
+		this.orders = orders;
+	}*/
+	@OneToMany(mappedBy="client")
+	public List<Order> getCommands() {
+		return orders;
+	}
+	public void setCommands(List<Order> orders) {
 		this.orders = orders;
 	}
 		   
