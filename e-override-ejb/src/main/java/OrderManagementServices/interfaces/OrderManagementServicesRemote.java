@@ -19,4 +19,5 @@ public interface OrderManagementServicesRemote {
 	List<Product> findAllProductsByIdOrder(Integer OrderId);
 	List<Product> findAllProductsByPanierId(Integer idPanier);
 	Boolean ajouterProduitAuPanier(Product product, Panier panier);
+	Integer NbrOrdersByProducts(Integer idProduct);
 }

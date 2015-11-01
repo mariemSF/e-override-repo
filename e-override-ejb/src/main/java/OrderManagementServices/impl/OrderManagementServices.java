@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import entities.Order;
+import entities.OrderLine;
 import entities.Panier;
 import entities.Product;
 
@@ -115,6 +116,16 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 		} catch (Exception e) {
 		}
 		return b;
+	}
+
+	@Override
+	public Integer NbrOrdersByProducts(Integer idProduct) {
+		OrderLine orderline = entityManager.find(OrderLine.class,idProduct);
+		String jpql = "select count(id_order) from OrderLine o where o.id_product=:param";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", orderline);
+		//return query.;//type de retour de query, jamais integer
+		return null;
 	}
 
 }
