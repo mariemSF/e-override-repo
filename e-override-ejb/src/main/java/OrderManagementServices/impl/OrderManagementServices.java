@@ -33,16 +33,6 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Order> findAllOrdersByClient(String ClientName) {
-		String jpql = "select c from Order c where c.client.name=:param";
-		Query query = entityManager.createQuery(jpql);
-		query.setParameter("param", ClientName);
-		return query.getResultList();
-	}
-
-
-	@SuppressWarnings("unchecked")
-	@Override
 	public List<Order> findAllOrdersByCategory(String ProductCategory) {
 		//List<Product> product = findAllProductsByCategory(Product.getCategory());
 		//teams.add(team);
@@ -86,7 +76,7 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Product> findAllOrdersByClientName(String ClientName) {
+	public List<Order> findAllOrdersByClientName(String ClientName) {
 		String jpql = "select o from Order o where o.client.name=:param";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", ClientName);
@@ -105,7 +95,7 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 	}
 
 	@Override
-	public Boolean ajouterProduitAuPanier(Product product, Basket basket) {
+	public Boolean AddProductToBasket(Product product, Basket basket) {
 		Boolean b = false;
 		try {
 			List<Product> products = findAllProductsByPanierId(basket.getId());
@@ -120,7 +110,7 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Product> nbrOrdersByProducts(Integer idProduct,Integer quantity) {
+	public List<Order> nbrOrdersByProduct(Integer idProduct,Integer quantity) {
 		OrderLine orderline = entityManager.find(OrderLine.class,idProduct);
 		String jpql = "select count(id_order),quantity from OrderLine o where o.product.id=:param1 and o.order.quantity=:param2";
 		Query query = entityManager.createQuery(jpql);

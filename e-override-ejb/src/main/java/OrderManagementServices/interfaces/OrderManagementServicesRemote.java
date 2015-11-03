@@ -11,7 +11,6 @@ import entities.Product;
 
 @Remote
 public interface OrderManagementServicesRemote {
-	List<Order> findAllOrdersByClient(String ClientName);
 
 	List<Order> findAllOrdersByCategory(String ProductCategory);
 
@@ -19,15 +18,15 @@ public interface OrderManagementServicesRemote {
 
 	List<Order> findAllOrdersByDeliveryDate(Date DeliveryDate);
 
-	List<Product> findAllOrdersByClientName(String ClientName);
+	List<Order> findAllOrdersByClientName(String ClientName);
 
 	List<Product> findAllProductsByIdOrder(Integer OrderId);
 
 	List<Product> findAllProductsByPanierId(Integer idPanier);
 
-	Boolean ajouterProduitAuPanier(Product product, Basket basket);
+	Boolean AddProductToBasket(Product product, Basket basket);
 
-	List<Product> nbrOrdersByProducts(Integer idProduct, Integer quantity);
+	List<Order> nbrOrdersByProduct(Integer idProduct, Integer quantity);
 
 	List<Order> findAllOrdersByProductId(Integer idProduct);
 }
