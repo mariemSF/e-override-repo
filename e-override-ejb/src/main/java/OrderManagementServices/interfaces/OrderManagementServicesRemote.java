@@ -22,11 +22,27 @@ public interface OrderManagementServicesRemote {
 
 	List<Product> findAllProductsByIdOrder(Integer OrderId);
 
-	List<Product> findAllProductsByPanierId(Integer idPanier);
+	List<Product> findAllProductsByBasketId(Integer idBasket);
 
 	Boolean AddProductToBasket(Product product, Basket basket);
 
 	List<Order> nbrOrdersByProduct(Integer idProduct, Integer quantity);
 
 	List<Order> findAllOrdersByProductId(Integer idProduct);
+
+	Boolean updateProduct(Product product);
+	
+	Boolean addProduct(Product product);
+	
+	Product findProductById(Integer idProduct);
+	
+	Boolean deleteproductById(Integer IdProduct);
+	
+	List<Product> findAllProductsByCategory(String pCategory);
+	
+	List<Product> findAllProductsByProviderName(String pName);
+	
+	List<Product> findAllProductsByIdProvider(Integer idProvider);
+
+	List<Product> findAllProducts();
 }

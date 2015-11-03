@@ -10,13 +10,13 @@ import OrderManagementServices.interfaces.OrderManagementServicesRemote;
 public class TestAddProductToBasket {
 
 	public static void main(String[] args)throws NamingException  {
-		/*Context context = new InitialContext();
+		Context context = new InitialContext();
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override/TeamManagementServices!services.interfaces.TeamManagementServicesRemote");
 
-		Product product = new Product("product 1",1000,200);
+		Product product = new Product("Sbedri",basket);
 
-		System.out.println(proxy.createProduct(product));*/
+		System.out.println(proxy.AddProductToBasket(product, basket));
 	}
 
 }

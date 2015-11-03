@@ -14,11 +14,8 @@ public interface DevelopmentShopServicesRemote {
 	Provider loginProvider(String login, String password);
 	Boolean updateClient(Client client);
 	Boolean updateProvider(Provider provider);
-	Boolean updateProduct(Product product);
-	Boolean addProduct(Product product);
 	Boolean addClient(Client client);
 	Boolean addProvider(Provider provider);
-	List<Product> findAllProducts();
 	List<Provider> findAllProviders();
 	List<Client> findAllClients();
 	Client findClientByName(String clientName);
@@ -28,11 +25,6 @@ public interface DevelopmentShopServicesRemote {
 	Provider findProviderById(Integer idProvider);
 	List<Provider> findProvidersByCategory(String categoryName);
 	List<Provider> findProvidersByIdProduct(Integer idProduct);
-	List<Product> findAllProductsByCategory(String pCategory);
-	List<Product> findAllProductsByProviderName(String pName);
-	List<Product> findAllProductsByIdProvider(Integer idProvider);
 	Boolean deleteClientById(Integer IdClient);
 	Boolean deleteProviderById(Integer IdProvider);
-	Product findProductById(Integer idProduct);
-	Boolean deleteproductById(Integer IdProduct);
 }

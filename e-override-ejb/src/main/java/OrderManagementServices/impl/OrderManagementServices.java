@@ -7,6 +7,7 @@ import entities.Order;
 import entities.OrderLine;
 import entities.Basket;
 import entities.Product;
+import entities.Provider;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -85,9 +86,9 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Product> findAllProductsByPanierId(Integer idPanier) {
+	public List<Product> findAllProductsByBasketId(Integer idBasket) {
 		Basket basket = entityManager.find(Basket.class,
-				idPanier);
+				idBasket);
 		String jpql = "select p from Products p where p.panier=:param";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", basket);
@@ -98,7 +99,7 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 	public Boolean AddProductToBasket(Product product, Basket basket) {
 		Boolean b = false;
 		try {
-			List<Product> products = findAllProductsByPanierId(basket.getId());
+			List<Product> products = findAllProductsByBasketId(basket.getId());
 			products.add(product);
 			basket.linkProductsToBasket(products);
 			entityManager.persist(basket);
@@ -128,5 +129,83 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 		query.setParameter("param", idProduct);
 		return query.getResultList();
 	}
+	
+	@Override
+	public Boolean updateProduct(Product product) {
+		Boolean b = false;
+		try {
+			entityManager.merge(product);
+			b = true;
+		} catch (Exception e) {
+		}
+		return b;
+	}
+
+	@Override
+	public Boolean addProduct(Product product) {
+		Boolean b = false;
+		try {
+			entityManager.persist(product);
+			b = true;
+		} catch (Exception e) {
+		}
+		return b;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Product> findAllProducts() {
+		String jpql = "select p from Product p";
+		Query query = entityManager.createQuery(jpql);
+		return query.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Product> findAllProductsByCategory(String pCategory) {
+		String jpql = "select p from Product p where p.category=:param";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", pCategory);
+		return query.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Product> findAllProductsByProviderName(String pName) {
+		Provider provider = entityManager.find(Provider.class,
+				pName);
+		String jpql = "select p from Product p where p.provider=:param";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", provider);
+		return query.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Product> findAllProductsByIdProvider(Integer idProvider) {
+		Provider provider = entityManager.find(Provider.class,
+				idProvider);
+		String jpql = "select p from Product p where p.provider=:param";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", provider);
+		return query.getResultList();
+	}
+
+	@Override
+	public Boolean deleteproductById(Integer IdProduct) {
+		Boolean b = false;
+		try {
+			entityManager.remove(findProductById(IdProduct));
+			b = true;
+		} catch (Exception e) {
+		}
+		return b;
+	}
+
+	@Override
+	public Product findProductById(Integer idProduct) {
+		return entityManager.find(Product.class, idProduct);
+	}
+
 
 }
