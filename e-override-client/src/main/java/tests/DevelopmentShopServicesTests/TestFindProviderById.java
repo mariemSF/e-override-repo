@@ -7,7 +7,7 @@ import javax.naming.NamingException;
 import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
 import entities.Provider;
 
-public class TestProviderById {
+public class TestFindProviderById {
 
 	public static void main(String[] args) throws NamingException {
 		Context context = new InitialContext();
