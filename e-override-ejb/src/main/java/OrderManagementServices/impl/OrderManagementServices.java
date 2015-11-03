@@ -118,14 +118,16 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 		return b;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public Integer NbrOrdersByProducts(Integer idProduct) {
+	public List<Product> nbrOrdersByProducts(Integer idProduct,Integer quantity) {
 		OrderLine orderline = entityManager.find(OrderLine.class,idProduct);
-		String jpql = "select count(id_order) from OrderLine o where o.id_product=:param";
+		String jpql = "select count(id_order),quantity from OrderLine o where o.product.id=:param1 and o.order.quantity=:param2";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", orderline);
 		//return query.;//type de retour de query, jamais integer
-		return null;
+		//return query.getFirstResult();
+		return query.getResultList();
 	}
 
 	@SuppressWarnings("unchecked")
