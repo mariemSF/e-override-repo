@@ -9,7 +9,7 @@ import javax.naming.NamingException;
 import OrderManagementServices.interfaces.OrderManagementServicesRemote;
 import entities.Order;
 
-public class TestNbrOrdersByProducts {
+public class TestNbrOrdersByProduct {
 
 	public static void main(String[] args)throws NamingException  {
 		Context context = new InitialContext();
