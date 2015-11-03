@@ -5,4 +5,4 @@
  * @author mariem
  *
  */
-package tests.testsModule2;
+package tests.DevelopmentShopServicesTests;

@@ -171,7 +171,7 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 	public List<Provider> findProvidersByIdProduct(Integer idProduct) {
 		Product product = entityManager.find(Product.class,
 				idProduct);
-		String jpql = "select p from Provider p where p.products.id=:param";
+		String jpql = "select p from Provider p where p.products=:param";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", product);
 		return query.getResultList();
