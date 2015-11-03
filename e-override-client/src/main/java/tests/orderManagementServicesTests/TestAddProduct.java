@@ -1,26 +1,25 @@
 package tests.orderManagementServicesTests;
 
-import java.util.List;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import OrderManagementServices.interfaces.OrderManagementServicesRemote;
 import entities.Product;
+import entities.Provider;
+import OrderManagementServices.interfaces.OrderManagementServicesRemote;
 
-public class TestFindAllProductsByPanierId {
+public class TestAddProduct {
 
-	public static void main(String[] args)throws NamingException  {
+	public static void main(String[] args) throws NamingException {
 		Context context = new InitialContext();
+
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override/OrderManagementServices!services.interfaces.OrderManagementServicesRemote");
+		
+       Product product = new Product("AB", 200, 20, Provider.setName("Ali"));
 
-		List<Product> products = proxy.findAllProductsByPanierId(1);
-		for (Product p : products) {
-			System.out.println(p);
-		}
+
+		System.out.println(proxy.addProduct(product));
 	}
-
 
 }

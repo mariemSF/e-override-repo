@@ -29,6 +29,18 @@ public class Product implements Serializable {
 	public Product() {
 		super();
 	}   
+	
+	
+	public Product(String category, Integer price, Integer quantity,
+			Provider provider) {
+		super();
+		this.category = category;
+		this.price = price;
+		this.quantity = quantity;
+		this.provider = provider;
+	}
+
+
 	@Id    
 	public Integer getId() {
 		return this.id;

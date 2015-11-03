@@ -34,6 +34,10 @@ public class Provider implements Serializable {
 		this.password = password;
 	}
 	
+	public Provider(String name) {
+		super();
+		this.name = name;
+	}
 	@Id    
 	public Integer getId() {
 		return this.id;
