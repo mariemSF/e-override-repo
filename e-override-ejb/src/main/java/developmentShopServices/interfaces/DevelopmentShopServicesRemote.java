@@ -16,6 +16,8 @@ public interface DevelopmentShopServicesRemote {
 	Boolean updateProvider(Provider provider);
 	Boolean updateProduct(Product product);
 	Boolean addProduct(Product product);
+	Boolean addClient(Client client);
+	Boolean addProvider(Provider provider);
 	List<Product> findAllProducts();
 	List<Provider> findAllProviders();
 	List<Client> findAllClients();
@@ -29,5 +31,8 @@ public interface DevelopmentShopServicesRemote {
 	List<Product> findAllProductsByCategory(String pCategory);
 	List<Product> findAllProductsByProviderName(String pName);
 	List<Product> findAllProductsByIdProvider(Integer idProvider);
-
+	Boolean deleteClientById(Integer IdClient);
+	Boolean deleteProviderById(Integer IdProvider);
+	Product findProductById(Integer idProduct);
+	Boolean deleteproductById(Integer IdProduct);
 }

@@ -23,7 +23,6 @@ public class Client implements Serializable {
 	private String address;
 	private Integer phoneNumber;
 	private static final long serialVersionUID = 1L;
-	//private List<Order> orders;
 	private List<Order> orders;
 	private Basket basket;
 	

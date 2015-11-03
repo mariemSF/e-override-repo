@@ -5,6 +5,7 @@ import java.util.List;
 import developmentShopServices.interfaces.DevelopmentShopServicesLocal;
 import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
 import entities.Client;
+import entities.Order;
 import entities.Product;
 import entities.Provider;
 
@@ -138,8 +139,11 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 
 	@Override
 	public Client findClientByIdOrder(Integer idOrder) {
-		// TODO Auto-generated method stub
-		return null;
+		//Order order = entityManager.find(List<Order>.class,idOrder);
+		String jpql = "select c from Client c where c.orders.id=:param";
+		Query query = entityManager.createQuery(jpql);
+		//query.setParameter("param", order);
+		return (Client) query.getSingleResult();	
 	}
 
 	@Override
@@ -152,16 +156,25 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 		return entityManager.find(Provider.class, idProvider);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Provider> findProvidersByCategory(String categoryName) {
-		// TODO Auto-generated method stub
-		return null;
+		Product product = entityManager.find(Product.class,
+				categoryName);
+		String jpql = "select p from Provider p where p.products=:param";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", product);
+		return query.getResultList();
 	}
 
 	@Override
 	public List<Provider> findProvidersByIdProduct(Integer idProduct) {
-		// TODO Auto-generated method stub
-		return null;
+		Product product = entityManager.find(Product.class,
+				idProduct);
+		String jpql = "select p from Provider p where p.products.id=:param";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", product);
+		return query.getResultList();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -184,10 +197,75 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 		return query.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Product> findAllProductsByIdProvider(Integer idProvider) {
-		// TODO Auto-generated method stub
-		return null;
+		Provider provider = entityManager.find(Provider.class,
+				idProvider);
+		String jpql = "select p from Product p where p.provider=:param";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", provider);
+		return query.getResultList();
+	}
+
+	@Override
+	public Boolean deleteClientById(Integer IdClient) {
+		Boolean b = false;
+		try {
+			entityManager.remove(findClientById(IdClient));
+			b = true;
+		} catch (Exception e) {
+		}
+		return b;
+	}
+
+	@Override
+	public Boolean deleteProviderById(Integer IdProvider) {
+		Boolean b = false;
+		try {
+			entityManager.remove(findProviderById(IdProvider));
+			b = true;
+		} catch (Exception e) {
+		}
+		return b;
+	}
+
+	@Override
+	public Boolean deleteproductById(Integer IdProduct) {
+		Boolean b = false;
+		try {
+			entityManager.remove(findProductById(IdProduct));
+			b = true;
+		} catch (Exception e) {
+		}
+		return b;
+	}
+
+	@Override
+	public Product findProductById(Integer idProduct) {
+		return entityManager.find(Product.class, idProduct);
+	}
+
+	@Override
+	public Boolean addClient(Client client) {
+		Boolean b = false;
+		try {
+			entityManager.persist(client);
+			b = true;
+		} catch (Exception e) {
+		}
+		return b;
+	}
+
+	@Override
+	public Boolean addProvider(Provider provider) {
+		Boolean b = false;
+		try {
+			entityManager.persist(provider);
+			b = true;
+		} catch (Exception e) {
+		}
+		return b;
 	}
 
 }
