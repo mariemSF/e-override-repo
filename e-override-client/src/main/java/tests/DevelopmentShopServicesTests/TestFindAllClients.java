@@ -15,7 +15,7 @@ public class TestFindAllClients {
 	public static void main(String[] args) throws NamingException {
 		Context context = new InitialContext();
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
-				.lookup("/ebi/TeamManagementServices!services.interfaces.TeamManagementServicesRemote");
+				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
 
 		List<Client> clients = proxy.findAllClients();
 		for (Client c : clients) {

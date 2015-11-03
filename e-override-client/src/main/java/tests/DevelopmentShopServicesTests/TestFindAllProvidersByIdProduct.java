@@ -15,7 +15,7 @@ public class TestFindAllProvidersByIdProduct {
 	public static void main(String[] args) throws NamingException {
 		Context context = new InitialContext();
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
-				.lookup("/ebi/TeamManagementServices!services.interfaces.TeamManagementServicesRemote");
+				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
 
 		List<Provider> providers = proxy.findAllProvidersByIdProduct(1);
 		for (Provider p : providers) {

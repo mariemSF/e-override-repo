@@ -11,7 +11,7 @@ public class TestDeleteProviderById {
 	public static void main(String[] args) throws NamingException {
 		Context context = new InitialContext();
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
-				.lookup("/ebi/TeamManagementServices!services.interfaces.TeamManagementServicesRemote");
+				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
 	
 		System.out.println(proxy.deleteProviderById(1));
 	}

@@ -16,10 +16,10 @@ public class TestAddProduct {
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override/OrderManagementServices!services.interfaces.OrderManagementServicesRemote");
 		
-       Product product = new Product("AB", 200, 20, Provider.setName("Ali"));
+       //Product product = new Product("AB", 200, 20, Provider.setName("Ali"));
 
 
-		System.out.println(proxy.addProduct(product));
+		//System.out.println(proxy.addProduct(product));
 	}
 
 }

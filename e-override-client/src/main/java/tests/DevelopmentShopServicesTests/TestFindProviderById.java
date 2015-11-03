@@ -12,7 +12,7 @@ public class TestFindProviderById {
 	public static void main(String[] args) throws NamingException {
 		Context context = new InitialContext();
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
-				.lookup("/ebi/TeamManagementServices!services.interfaces.TeamManagementServicesRemote");
+				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
 		Provider provider = proxy.findProviderById(1);
 
 		System.out.println(" (Provider) Hello " + provider.getName());

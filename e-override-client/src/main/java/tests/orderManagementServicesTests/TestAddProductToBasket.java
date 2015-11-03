@@ -14,9 +14,9 @@ public class TestAddProductToBasket {
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override/TeamManagementServices!services.interfaces.TeamManagementServicesRemote");
 
-		Product product = new Product("Sbedri",basket);
+		//Product product = new Product("Sbedri",basket);
 
-		System.out.println(proxy.AddProductToBasket(product, basket));
+		//System.out.println(proxy.AddProductToBasket(product, basket));
 	}
 
 }
