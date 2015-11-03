@@ -36,6 +36,11 @@ public class Client implements Serializable {
 		this.login = login;
 		this.password = password;
 	}
+	public Client(String login, String password) {
+		//super();
+		this.login = login;
+		this.password = password;
+	}
 	
 	@Id    
 	public Integer getId() {

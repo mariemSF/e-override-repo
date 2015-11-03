@@ -14,7 +14,7 @@ public class TestAddClient {
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
 				.lookup("/ebi/TeamManagementServices!services.interfaces.TeamManagementServicesRemote");
 
-		Client client = new Client("mariem", "mariem", "3cinfo3");
+		Client client = new Client("mouna", "mouna", "3cinfo3");
 
 		System.out.println(proxy.addClient(client));
 	}

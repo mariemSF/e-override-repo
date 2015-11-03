@@ -128,7 +128,7 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Provider> findProvidersByCategory(String categoryName) {
+	public List<Provider> findAllProvidersByCategory(String categoryName) {
 		Product product = entityManager.find(Product.class,
 				categoryName);
 		String jpql = "select p from Provider p where p.products=:param";
@@ -139,7 +139,7 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Provider> findProvidersByIdProduct(Integer idProduct) {
+	public List<Provider> findAllProvidersByIdProduct(Integer idProduct) {
 		Product product = entityManager.find(Product.class,
 				idProduct);
 		String jpql = "select p from Provider p where p.products=:param";

@@ -5,18 +5,17 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
-import entities.Provider;
+import entities.Client;
 
-public class TestAddProvider {
+public class TestFindClientByName {
 
-	public static void main(String[] args) throws NamingException{
+	public static void main(String[] args) throws NamingException {
 		Context context = new InitialContext();
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
 				.lookup("/ebi/TeamManagementServices!services.interfaces.TeamManagementServicesRemote");
+		Client client = proxy.findClientByName("mouna");
 
-		Provider provider = new Provider("Ali", "Aloulou", "3cinfo3");
-
-		System.out.println(proxy.addProvider(provider));
+		System.out.println(" (Client) Hello " + client.getName()+" , your login is "+client.getLogin()+" , your password is "+client.getPassword() +" and your orders are: "+client.getOrders());
 
 	}
 

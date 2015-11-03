@@ -33,6 +33,11 @@ public class Provider implements Serializable {
 		this.login = login;
 		this.password = password;
 	}
+	public Provider(String login, String password) {
+		super();
+		this.login = login;
+		this.password = password;
+	}
 	
 	@Id    
 	public Integer getId() {

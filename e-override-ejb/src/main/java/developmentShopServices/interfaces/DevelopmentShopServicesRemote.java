@@ -5,7 +5,6 @@ import java.util.List;
 import javax.ejb.Remote;
 
 import entities.Client;
-import entities.Product;
 import entities.Provider;
 
 @Remote
@@ -23,8 +22,8 @@ public interface DevelopmentShopServicesRemote {
 	Client findClientByIdOrder(Integer idOrder);
 	Provider findProviderByName(String providerName);
 	Provider findProviderById(Integer idProvider);
-	List<Provider> findProvidersByCategory(String categoryName);
-	List<Provider> findProvidersByIdProduct(Integer idProduct);
+	List<Provider> findAllProvidersByCategory(String categoryName);
+	List<Provider> findAllProvidersByIdProduct(Integer idProduct);
 	Boolean deleteClientById(Integer IdClient);
 	Boolean deleteProviderById(Integer IdProvider);
 }

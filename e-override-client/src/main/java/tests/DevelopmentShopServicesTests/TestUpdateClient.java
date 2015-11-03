@@ -4,20 +4,24 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
-import entities.Provider;
 
-public class TestAddProvider {
+
+import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
+import entities.Client;
+
+
+
+public class TestUpdateClient {
 
 	public static void main(String[] args) throws NamingException{
 		Context context = new InitialContext();
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
 				.lookup("/ebi/TeamManagementServices!services.interfaces.TeamManagementServicesRemote");
 
-		Provider provider = new Provider("Ali", "Aloulou", "3cinfo3");
+		Client client = proxy.findClientById(1);
+		client.setName("ahmed");
 
-		System.out.println(proxy.addProvider(provider));
-
+		System.out.println(proxy.updateClient(client));
 	}
 
 }

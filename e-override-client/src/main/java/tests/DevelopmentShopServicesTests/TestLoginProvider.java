@@ -7,16 +7,16 @@ import javax.naming.NamingException;
 import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
 import entities.Provider;
 
-public class TestAddProvider {
+public class TestLoginProvider {
 
-	public static void main(String[] args) throws NamingException{
+	public static void main(String[] args) throws NamingException {
 		Context context = new InitialContext();
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
 				.lookup("/ebi/TeamManagementServices!services.interfaces.TeamManagementServicesRemote");
 
-		Provider provider = new Provider("Ali", "Aloulou", "3cinfo3");
+		Provider providerLoggedIn = proxy.loginProvider("Aloulou", "3cinfo3");
 
-		System.out.println(proxy.addProvider(provider));
+		System.out.println("Welcome " + providerLoggedIn.getName());
 
 	}
 
