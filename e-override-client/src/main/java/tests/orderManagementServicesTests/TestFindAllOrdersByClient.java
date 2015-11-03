@@ -5,4 +5,4 @@
  * @author mariem
  *
  */
-package tests.testsModule1;
+package tests.orderManagementServicesTests;
