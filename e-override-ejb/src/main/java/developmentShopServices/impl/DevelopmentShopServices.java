@@ -5,7 +5,6 @@ import java.util.List;
 import developmentShopServices.interfaces.DevelopmentShopServicesLocal;
 import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
 import entities.Client;
-import entities.Order;
 import entities.Product;
 import entities.Provider;
 
@@ -81,35 +80,6 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 		return b;
 	}
 
-	@Override
-	public Boolean updateProduct(Product product) {
-		Boolean b = false;
-		try {
-			entityManager.merge(product);
-			b = true;
-		} catch (Exception e) {
-		}
-		return b;
-	}
-
-	@Override
-	public Boolean addProduct(Product product) {
-		Boolean b = false;
-		try {
-			entityManager.persist(product);
-			b = true;
-		} catch (Exception e) {
-		}
-		return b;
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Product> findAllProducts() {
-		String jpql = "select p from Product p";
-		Query query = entityManager.createQuery(jpql);
-		return query.getResultList();
-	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -167,6 +137,7 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 		return query.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Provider> findProvidersByIdProduct(Integer idProduct) {
 		Product product = entityManager.find(Product.class,
@@ -177,36 +148,6 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 		return query.getResultList();
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Product> findAllProductsByCategory(String pCategory) {
-		String jpql = "select p from Product p where p.category=:param";
-		Query query = entityManager.createQuery(jpql);
-		query.setParameter("param", pCategory);
-		return query.getResultList();
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Product> findAllProductsByProviderName(String pName) {
-		Provider provider = entityManager.find(Provider.class,
-				pName);
-		String jpql = "select p from Product p where p.provider=:param";
-		Query query = entityManager.createQuery(jpql);
-		query.setParameter("param", provider);
-		return query.getResultList();
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Product> findAllProductsByIdProvider(Integer idProvider) {
-		Provider provider = entityManager.find(Provider.class,
-				idProvider);
-		String jpql = "select p from Product p where p.provider=:param";
-		Query query = entityManager.createQuery(jpql);
-		query.setParameter("param", provider);
-		return query.getResultList();
-	}
 
 	@Override
 	public Boolean deleteClientById(Integer IdClient) {
@@ -230,21 +171,6 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 		return b;
 	}
 
-	@Override
-	public Boolean deleteproductById(Integer IdProduct) {
-		Boolean b = false;
-		try {
-			entityManager.remove(findProductById(IdProduct));
-			b = true;
-		} catch (Exception e) {
-		}
-		return b;
-	}
-
-	@Override
-	public Product findProductById(Integer idProduct) {
-		return entityManager.find(Product.class, idProduct);
-	}
 
 	@Override
 	public Boolean addClient(Client client) {
