@@ -25,7 +25,7 @@ public class Client implements Serializable {
 	private static final long serialVersionUID = 1L;
 	//private List<Order> orders;
 	private List<Order> orders;
-	private Panier panier;
+	private Basket basket;
 	
 
 	public Client() {
@@ -90,18 +90,18 @@ public class Client implements Serializable {
 		this.orders = orders;
 	}*/
 	@OneToMany(mappedBy="client")
-	public List<Order> getCommands() {
+	public List<Order> getOrders() {
 		return orders;
 	}
-	public void setCommands(List<Order> orders) {
+	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
 	@OneToOne(mappedBy="client")
-	public Panier getPanier() {
-		return panier;
+	public Basket getBasket() {
+		return basket;
 	}
-	public void setPanier(Panier panier) {
-		this.panier = panier;
+	public void setBasket(Basket basket) {
+		this.basket = basket;
 	}
 
 		   

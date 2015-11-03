@@ -7,12 +7,12 @@ import javax.persistence.*;
 
 import java.util.List;
 /**
- * Entity implementation class for Entity: Panier
+ * Entity implementation class for Entity: Basket
  *
  */
 @Entity
 
-public class Panier implements Serializable {
+public class Basket implements Serializable {
 
 	
 	private Integer id;
@@ -23,7 +23,7 @@ public class Panier implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	public Panier() {
+	public Basket() {
 		super();
 	}   
 	@Id    
@@ -47,7 +47,7 @@ public class Panier implements Serializable {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	@OneToMany(mappedBy="panier")
+	@OneToMany(mappedBy="basket")
 	public List<Product> getProducts() {
 		return products;
 	}
@@ -55,10 +55,10 @@ public class Panier implements Serializable {
 		this.products = products;
 	}
 
-	public void linkProductsToPanier(List<Product> products) {
+	public void linkProductsToBasket(List<Product> products) {
 		this.products = products;
 		for (Product p : products) {
-			p.setPanier(this);
+			p.setBasket(this);
 		}
 	}
 	

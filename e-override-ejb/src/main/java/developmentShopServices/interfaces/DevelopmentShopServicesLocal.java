@@ -1,4 +1,4 @@
-package developmentShopServices.interfces;
+package developmentShopServices.interfaces;
 
 import javax.ejb.Local;
 

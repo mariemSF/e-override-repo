@@ -6,7 +6,7 @@ import java.util.List;
 import javax.ejb.Remote;
 
 import entities.Order;
-import entities.Panier;
+import entities.Basket;
 import entities.Product;
 
 @Remote
@@ -25,7 +25,7 @@ public interface OrderManagementServicesRemote {
 
 	List<Product> findAllProductsByPanierId(Integer idPanier);
 
-	Boolean ajouterProduitAuPanier(Product product, Panier panier);
+	Boolean ajouterProduitAuPanier(Product product, Basket basket);
 
 	List<Product> nbrOrdersByProducts(Integer idProduct, Integer quantity);
 

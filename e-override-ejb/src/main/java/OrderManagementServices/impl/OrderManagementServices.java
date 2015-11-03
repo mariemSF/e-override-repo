@@ -5,7 +5,7 @@ import java.util.List;
 
 import entities.Order;
 import entities.OrderLine;
-import entities.Panier;
+import entities.Basket;
 import entities.Product;
 
 import javax.ejb.Stateless;
@@ -96,22 +96,22 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Product> findAllProductsByPanierId(Integer idPanier) {
-		Panier panier = entityManager.find(Panier.class,
+		Basket basket = entityManager.find(Basket.class,
 				idPanier);
 		String jpql = "select p from Products p where p.panier=:param";
 		Query query = entityManager.createQuery(jpql);
-		query.setParameter("param", panier);
+		query.setParameter("param", basket);
 		return query.getResultList();
 	}
 
 	@Override
-	public Boolean ajouterProduitAuPanier(Product product, Panier panier) {
+	public Boolean ajouterProduitAuPanier(Product product, Basket basket) {
 		Boolean b = false;
 		try {
-			List<Product> products = findAllProductsByPanierId(panier.getId());
+			List<Product> products = findAllProductsByPanierId(basket.getId());
 			products.add(product);
-			panier.linkProductsToPanier(products);
-			entityManager.persist(panier);
+			basket.linkProductsToBasket(products);
+			entityManager.persist(basket);
 			b = true;
 		} catch (Exception e) {
 		}

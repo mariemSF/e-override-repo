@@ -20,7 +20,7 @@ public class OrderLine implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Product product;
 	private Order order;
-	//private Panier panier;
+	//private Basket panier;
 
 	public OrderLine() {
 		super();
@@ -73,10 +73,10 @@ public class OrderLine implements Serializable {
 	public void setorder(Order order) {
 		this.order = order;
 	}
-	/*public Panier getPanier() {
+	/*public Basket getPanier() {
 		return panier;
 	}
-	public void setPanier(Panier panier) {
+	public void setPanier(Basket panier) {
 		this.panier = panier;
 	}*/
 	

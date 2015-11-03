@@ -23,7 +23,7 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Provider provider;
 	private List <OrderLine> orderLines;
-	private Panier panier;
+	private Basket basket;
 	
 
 	public Product() {
@@ -73,11 +73,11 @@ public class Product implements Serializable {
 		this.orderLines = orderlines;
 	}
 	@ManyToOne
-	public Panier getPanier() {
-		return panier;
+	public Basket getBasket() {
+		return basket;
 	}
-	public void setPanier(Panier panier) {
-		this.panier = panier;
+	public void setBasket(Basket basket) {
+		this.basket = basket;
 	}
 	
 	
