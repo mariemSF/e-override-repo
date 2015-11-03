@@ -2,11 +2,11 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="e-override-ejb">
 	<jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
+	<class>entities.Basket</class>
 	<class>entities.Client</class>
 	<class>entities.Order</class>
 	<class>entities.OrderLine</class>
 	<class>entities.OrderLineId</class>
-	<class>entities.Panier</class>
 	<class>entities.Product</class>
 	<class>entities.Provider</class>
 		<properties>
