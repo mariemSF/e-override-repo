@@ -1,9 +1,26 @@
 package tests.OrderManagementServicesTests;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
+import entities.Product;
+import OrderManagementServices.interfaces.OrderManagementServicesRemote;
+
+
 public class TestUpdateProduct {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) throws NamingException {
+		Context context = new InitialContext();
+		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
+				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
+
+		Product product = proxy.findProductById(1);
+		product.setCategory("voiture");
+		product.setPrice(18000);
+		product.setQuantity(1);
+
+		System.out.println(proxy.updateProduct(product));
 
 	}
 

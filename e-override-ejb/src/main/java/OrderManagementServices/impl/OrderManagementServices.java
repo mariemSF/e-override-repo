@@ -45,7 +45,7 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Order> findAllOrdersByOrderDate(Date OrderDate) {
+	public List<Order> findAllOrdersByOrderDate(String OrderDate) {
 		String jpql = "select c from Order c where c.dateOrder=:param";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", OrderDate);
@@ -54,7 +54,7 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Order> findAllOrdersByDeliveryDate(Date DeliveryDate) {
+	public List<Order> findAllOrdersByDeliveryDate(String DeliveryDate) {
 		String jpql = "select c from Order c where c.dateDelivery=:param";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", DeliveryDate);
