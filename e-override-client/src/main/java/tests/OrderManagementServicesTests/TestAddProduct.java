@@ -1,4 +1,4 @@
-package tests.orderManagementServicesTests;
+package tests.OrderManagementServicesTests;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -14,7 +14,7 @@ public class TestAddProduct {
 		Context context = new InitialContext();
 
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
-				.lookup("/e-override/OrderManagementServices!services.interfaces.OrderManagementServicesRemote");
+				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
 		
        //Product product = new Product("AB", 200, 20, Provider.setName("Ali"));
 

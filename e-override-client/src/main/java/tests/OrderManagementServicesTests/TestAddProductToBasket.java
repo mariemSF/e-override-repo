@@ -1,4 +1,4 @@
-package tests.orderManagementServicesTests;
+package tests.OrderManagementServicesTests;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -12,7 +12,7 @@ public class TestAddProductToBasket {
 	public static void main(String[] args)throws NamingException  {
 		Context context = new InitialContext();
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
-				.lookup("/e-override/TeamManagementServices!services.interfaces.TeamManagementServicesRemote");
+				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
 
 		//Product product = new Product("Sbedri",basket);
 

@@ -1,4 +1,4 @@
-package tests.orderManagementServicesTests;
+package tests.OrderManagementServicesTests;
 
 import java.util.List;
 
@@ -6,19 +6,20 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import OrderManagementServices.interfaces.OrderManagementServicesRemote;
 import entities.Order;
+import OrderManagementServices.interfaces.OrderManagementServicesRemote;
 
-public class TestFindAllOrdersByClientName {
+public class TestFindAllOrdersByCategory {
 
 	public static void main(String[] args) throws NamingException{
 		Context context = new InitialContext();
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
-				.lookup("/e-override/OrderManagementServices!services.interfaces.OrderManagementServicesRemote");
-		List<Order> orders = proxy.findAllOrdersByClientName("Ali");
+				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
+		List<Order> orders = proxy.findAllOrdersByCategory("AB");
 		for (Order o : orders) {
 			System.out.println(o);
 		}
+
 	}
 
 }
