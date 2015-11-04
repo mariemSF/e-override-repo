@@ -4,13 +4,14 @@
 	<jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
 	<class>entities.Basket</class>
 	<class>entities.Client</class>
+	<class>entities.Feedback</class>
 	<class>entities.Order</class>
 	<class>entities.OrderLine</class>
 	<class>entities.OrderLineId</class>
 	<class>entities.Product</class>
 	<class>entities.Provider</class>
 		<properties>
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql" value="true"/>
 		</properties>

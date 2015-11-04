@@ -13,7 +13,7 @@ public class TestDeleteClientById {
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
 				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
 	
-		System.out.println(proxy.deleteClientById(1));
+		System.out.println(proxy.deleteClientById(2));
 
 	}
 

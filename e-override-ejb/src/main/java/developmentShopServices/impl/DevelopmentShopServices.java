@@ -2,16 +2,17 @@ package developmentShopServices.impl;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 import developmentShopServices.interfaces.DevelopmentShopServicesLocal;
 import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
 import entities.Client;
 import entities.Product;
 import entities.Provider;
 
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 /**
  * Session Bean implementation class DevelopmentShopServices
@@ -92,7 +93,7 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Client> findAllClients() {
-		String jpql = "select p from Provider p";
+		String jpql = "select c from Client c";
 		Query query = entityManager.createQuery(jpql);
 		return query.getResultList();
 	}

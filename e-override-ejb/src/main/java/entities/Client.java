@@ -30,11 +30,15 @@ public class Client implements Serializable {
 	public Client() {
 		super();
 	}   
-	public Client(String nom, String login, String password) {
+	public Client(String name, String login, String password) {
 		//super();
-		this.name = nom;
+		this.name = name;
 		this.login = login;
 		this.password = password;
+	}
+	public Client(String name) {
+		super();
+		this.name = name;
 	}
 	public Client(String login, String password) {
 		//super();

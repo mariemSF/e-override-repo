@@ -16,6 +16,7 @@ import javax.persistence.*;
 public class Provider implements Serializable {
 
 	
+	
 	private Integer id;
 	private String name;
 	private String login;
@@ -27,6 +28,11 @@ public class Provider implements Serializable {
 	public Provider() {
 		super();
 	}   
+	
+	public Provider(Integer id) {
+		//super();
+		this.id = id;
+	}
 	public Provider(String nom, String login, String password) {
 		super();
 		this.name = nom;

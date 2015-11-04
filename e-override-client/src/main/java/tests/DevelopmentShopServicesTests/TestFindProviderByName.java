@@ -15,7 +15,7 @@ public class TestFindProviderByName {
 				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
 		Provider provider = proxy.findProviderByName("Ali");
 
-		System.out.println(" (Provider) Hello " + provider.getName()+" , your login is "+provider.getLogin()+" , your password is "+provider.getPassword() +" and your products are: "+provider.getProducts());
+		System.out.println(" Hello " + provider.getName());
 
 	}
 

@@ -1,13 +1,11 @@
 package tests.OrderManagementServicesTests;
 
-import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import OrderManagementServices.interfaces.OrderManagementServicesRemote;
-import entities.Product;
 
 public class TestDeleteProductById {
 
@@ -16,7 +14,7 @@ public class TestDeleteProductById {
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
 
-		System.out.println(proxy.deleteproductById(1));
+		System.out.println(proxy.deleteproductById(2));
 	}
 
 }

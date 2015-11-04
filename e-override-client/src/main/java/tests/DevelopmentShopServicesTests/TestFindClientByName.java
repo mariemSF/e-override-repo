@@ -15,7 +15,7 @@ public class TestFindClientByName {
 				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
 		Client client = proxy.findClientByName("mouna");
 
-		System.out.println(" (Client) Hello " + client.getName()+" , your login is "+client.getLogin()+" , your password is "+client.getPassword() +" and your orders are: "+client.getOrders());
+		System.out.println(" Hello " + client.getName());
 
 	}
 

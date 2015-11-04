@@ -14,9 +14,9 @@ public class TestFindClientById {
 		Context context = new InitialContext();
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
 				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
-		Client client = proxy.findClientById(1);
+		Client client = proxy.findClientById(2);
 
-		System.out.println(" (Client) Hello " + client.getName());
+		System.out.println(" Hello " + client.getName());
 	}
 
 }

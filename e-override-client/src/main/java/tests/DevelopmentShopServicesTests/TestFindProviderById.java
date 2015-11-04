@@ -15,7 +15,7 @@ public class TestFindProviderById {
 				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
 		Provider provider = proxy.findProviderById(1);
 
-		System.out.println(" (Provider) Hello " + provider.getName());
+		System.out.println(" Hello " + provider.getName());
 	}
 
 }

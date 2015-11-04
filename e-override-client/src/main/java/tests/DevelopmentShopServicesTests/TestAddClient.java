@@ -14,7 +14,7 @@ public class TestAddClient {
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
 				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
 
-		Client client = new Client("mouna", "mouna", "3cinfo3");
+		Client client = new Client("mouna", "mounaa", "3cinfo3");
 
 		System.out.println(proxy.addClient(client));
 	}
