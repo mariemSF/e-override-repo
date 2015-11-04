@@ -10,6 +10,7 @@ import javax.persistence.Query;
 import developmentShopServices.interfaces.DevelopmentShopServicesLocal;
 import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
 import entities.Client;
+import entities.Order;
 import entities.Product;
 import entities.Provider;
 
@@ -110,10 +111,11 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 
 	@Override
 	public Client findClientByIdOrder(Integer idOrder) {
-		//Order order = entityManager.find(List<Order>.class,idOrder);
-		String jpql = "select c from Client c where c.orders.id=:param";
+		Order order = entityManager.find(Order.class,idOrder);
+		//String jpql = "select c from Client c where c.orders.id=:param";
+		String jpql = "select c from Client c join c.orders o where o.id=:param";
 		Query query = entityManager.createQuery(jpql);
-		//query.setParameter("param", order);
+		query.setParameter("param", order);
 		return (Client) query.getSingleResult();	
 	}
 

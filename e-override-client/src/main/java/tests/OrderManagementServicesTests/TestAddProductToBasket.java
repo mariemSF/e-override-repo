@@ -22,7 +22,7 @@ public class TestAddProductToBasket {
 		provider.setName("med");
 	    Product product = new Product("iphone", "apple", 2000, 100, provider, basket);
 
-	    System.out.println(proxy.AddProductToBasket(product, basket));
+	    //System.out.println(proxy.AddOrder(product, order));
 	}
 
 }

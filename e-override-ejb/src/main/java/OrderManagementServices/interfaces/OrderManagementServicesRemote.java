@@ -24,7 +24,7 @@ public interface OrderManagementServicesRemote {
 
 	List<Product> findAllProductsByBasketId(Integer idBasket);
 
-	Boolean AddProductToBasket(Product product, Basket basket);
+	Boolean AddProductToBasket(List<Product> product, Basket basket);
 
 	List<Order> nbrOrdersByProduct(Integer idProduct, Integer quantity);
 

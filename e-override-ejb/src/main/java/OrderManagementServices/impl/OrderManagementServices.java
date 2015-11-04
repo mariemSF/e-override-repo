@@ -88,19 +88,21 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 	public List<Product> findAllProductsByBasketId(Integer idBasket) {
 		Basket basket = entityManager.find(Basket.class,
 				idBasket);
-		String jpql = "select p from Products p where p.panier=:param";
+		String jpql = "select p from Products p where p.basket.id=:param";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", basket);
 		return query.getResultList();
 	}
 
 	@Override
-	public Boolean AddProductToBasket(Product product, Basket basket) {
+	public Boolean AddProductToBasket(List<Product> products, Basket basket) {
 		Boolean b = false;
 		try {
-			List<Product> products = findAllProductsByBasketId(basket.getId());
-			products.add(product);
-			basket.linkProductsToBasket(products);
+			//List<Product> products = findAllProductsByBasketId(basket.getId()); : on va lutiliser dans AddCommand()
+			
+			//products.add(product);
+			
+			//basket.linkProductsToBasket(product);
 			entityManager.persist(basket);
 			b = true;
 		} catch (Exception e) {
