@@ -26,6 +26,12 @@ public class Basket implements Serializable {
 	public Basket() {
 		super();
 	}   
+	
+	public Basket(Integer id) {
+		super();
+		this.id = id;
+	}
+
 	@Id    
 	public Integer getId() {
 		return this.id;

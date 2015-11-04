@@ -30,8 +30,25 @@ public class Product implements Serializable {
 	public Product() {
 		super();
 	}   
-	
-	
+
+
+	public Product(String name, String category, Integer price,
+			Integer quantity, Provider provider,Basket basket) {
+		super();
+		this.name = name;
+		this.category = category;
+		this.price = price;
+		this.quantity = quantity;
+		this.provider = provider;
+		this.basket = basket;
+	}
+
+
+
+
+
+
+
 	public Product(String category, Integer price, Integer quantity,
 			Provider provider) {
 		super();
