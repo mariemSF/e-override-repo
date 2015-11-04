@@ -41,7 +41,7 @@ public class Product implements Serializable {
 	}
 
 
-	@Id    
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
@@ -71,7 +71,7 @@ public class Product implements Serializable {
 	public void setQuantity(Integer Quantity) {
 		this.quantity = Quantity;
 	}
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	public Provider getProvider() {
 		return provider;
 	}
