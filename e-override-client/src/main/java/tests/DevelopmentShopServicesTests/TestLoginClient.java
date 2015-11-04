@@ -15,7 +15,7 @@ public class TestLoginClient{
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
 				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
 
-		Client clientLoggedIn = proxy.loginClient("mouna", "3cinfo3");
+		Client clientLoggedIn = proxy.loginClient("mounaa", "3cinfo3");
 
 		System.out.println("Welcome " + clientLoggedIn.getName());
 	}

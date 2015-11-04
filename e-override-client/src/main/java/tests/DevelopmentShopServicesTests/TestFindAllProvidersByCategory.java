@@ -16,7 +16,7 @@ public class TestFindAllProvidersByCategory {
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
 				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
 
-		List<Provider> providers = proxy.findAllProvidersByCategory("telephone");
+		List<Provider> providers = proxy.findAllProvidersByCategory("iphone");
 		for (Provider p : providers) {
 			System.out.println(p.getName());
 		}

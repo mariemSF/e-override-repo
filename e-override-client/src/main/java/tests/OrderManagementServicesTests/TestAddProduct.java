@@ -17,8 +17,8 @@ public class TestAddProduct {
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
 		
 		Provider provider = new Provider();
-        provider.setId(2);
-        Product product = new Product("TV", 1000, 300, provider);
+        //provider.setId(1);
+        Product product = new Product("iphone", 1000, 300, provider);
 
         System.out.println(proxy.addProduct(product));
 	}
