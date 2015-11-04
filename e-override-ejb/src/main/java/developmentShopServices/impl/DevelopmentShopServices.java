@@ -132,7 +132,7 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 	public List<Provider> findAllProvidersByCategory(String categoryName) {
 		Product product = entityManager.find(Product.class,
 				categoryName);
-		String jpql = "select p from Provider p where p.products=:param";
+		String jpql = "select p from Provider p where p.products.category=:param";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", product);
 		return query.getResultList();
@@ -143,7 +143,7 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 	public List<Provider> findAllProvidersByIdProduct(Integer idProduct) {
 		Product product = entityManager.find(Product.class,
 				idProduct);
-		String jpql = "select p from Provider p where p.products=:param";
+		String jpql = "select p from Provider p where p.products.id=:param";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", product);
 		return query.getResultList();

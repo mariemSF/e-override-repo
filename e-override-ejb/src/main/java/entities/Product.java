@@ -72,7 +72,7 @@ public class Product implements Serializable {
 	public void setQuantity(Integer Quantity) {
 		this.quantity = Quantity;
 	}
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.DETACH)
 	public Provider getProvider() {
 		return provider;
 	}
