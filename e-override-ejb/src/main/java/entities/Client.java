@@ -42,7 +42,8 @@ public class Client implements Serializable {
 		this.password = password;
 	}
 	
-	@Id    
+	@Id   
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}

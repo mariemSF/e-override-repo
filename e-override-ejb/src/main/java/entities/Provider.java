@@ -43,7 +43,9 @@ public class Provider implements Serializable {
 		super();
 		this.name = name;
 	}
-	@Id    
+	
+	@Id   
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}

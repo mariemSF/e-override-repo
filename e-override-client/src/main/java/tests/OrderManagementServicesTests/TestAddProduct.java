@@ -16,10 +16,11 @@ public class TestAddProduct {
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
 		
-       //Product product = new Product("AB", 200, 20, Provider.setName("Ali"));
+		Provider provider = new Provider();
+provider.setName("Ali");
+        Product product = new Product("AB", 200, 20, provider);
 
-
-		//System.out.println(proxy.addProduct(product));
+        System.out.println(proxy.addProduct(product));
 	}
 
 }
