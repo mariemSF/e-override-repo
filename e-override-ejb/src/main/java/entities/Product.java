@@ -17,6 +17,7 @@ public class Product implements Serializable {
 
 	
 	private Integer id;
+	private String name;
 	private String category;
 	private Integer price;
 	private Integer quantity;
@@ -91,6 +92,16 @@ public class Product implements Serializable {
 	}
 	public void setBasket(Basket basket) {
 		this.basket = basket;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	

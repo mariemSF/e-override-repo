@@ -18,7 +18,7 @@ public class TestFindAllProducts {
 
 		List<Product> products = proxy.findAllProducts();
 		for (Product p : products) {
-			System.out.println(p.getCategory()+p.getPrice());
+			System.out.println(p.getName()+" "+p.getCategory()+" "+p.getPrice());
 		}
 	}
 
