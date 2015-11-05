@@ -112,8 +112,7 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 	@Override
 	public Client findClientByIdOrder(Integer idOrder) {
 		Order order = entityManager.find(Order.class,idOrder);
-		//String jpql = "select c from Client c where c.orders.id=:param";
-		String jpql = "select c from Client c join c.orders o where o.id=:param";
+		String jpql = "select c from Client c where c.orders.id=:param";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", order);
 		return (Client) query.getSingleResult();	
