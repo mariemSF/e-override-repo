@@ -1,26 +1,30 @@
 package tests.OrderManagementServicesTests;
 
-import java.util.List;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import OrderManagementServices.interfaces.OrderManagementServicesRemote;
+import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
+import entities.Basket;
+import entities.Client;
+import entities.Order;
+import entities.OrderLine;
 import entities.Product;
+import entities.Provider;
+import OrderManagementServices.interfaces.OrderManagementServicesRemote;
 
-public class TestFindAllProductsByBasketId {
+public class TestAssigneOrderLine {
 
 	public static void main(String[] args)throws NamingException  {
 		Context context = new InitialContext();
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
-
-		/*List<Product> products = proxy.findAllProductsByBasketId(1);
-		for (Product p : products) {
-			System.out.println(p);
-		}*/
+		
+		
+		Product p = proxy.findProductById(2);
+		Order o =  proxy.findOrderById(1);
+		
+        System.out.println(proxy.AssignOrderLine(p, o , new Float(10.0), 5));
 	}
-
 
 }

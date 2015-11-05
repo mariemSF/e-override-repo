@@ -13,7 +13,7 @@ public class TestFindProviderByName {
 		Context context = new InitialContext();
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
 				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
-		Provider provider = proxy.findProviderByName("Ali");
+		Provider provider = proxy.findProviderByName("stoura");
 
 		System.out.println(" Hello " + provider.getName());
 

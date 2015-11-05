@@ -3,8 +3,10 @@ package OrderManagementServices.impl;
 import java.util.Date;
 import java.util.List;
 
+import entities.Client;
 import entities.Order;
 import entities.OrderLine;
+import entities.OrderLineId;
 import entities.Product;
 import entities.Provider;
 
@@ -92,34 +94,69 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 	}*/
 
 	@Override
-	public Boolean AddOrder(Integer idProduct, OrderLine orderLine) {
+	public Boolean AddOrder(Client c) {
 		Boolean b = false;
 		try {
-			Product product = findProductById(idProduct);
-			orderLine.setProduct(product);
-			entityManager.persist(orderLine);
+			
+			Order order =new Order();
+			order.setClient(c);
+			order.setQuantity(0);
+			order.setDateOrder(new Date());
+			Float f = new Float(0.0) ;
+			order.setTotalPrice(f);
+			
+			
+			entityManager.persist(order);
 			b = true;
 		} catch (Exception e) {
+			
+			
 		}
 		return b;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Order> nbrOrdersByProduct(Integer idProduct,Integer quantity) {
-		OrderLine orderline = entityManager.find(OrderLine.class,idProduct);
-		String jpql = "select count(id_order),quantity from OrderLine o where o.product.id=:param1 and o.order.quantity=:param2";
-		Query query = entityManager.createQuery(jpql);
-		query.setParameter("param", orderline);
-		//return query.;//type de retour de query, jamais integer
-		//return query.getFirstResult();
-		return query.getResultList();
+	public String BestProduct() {
+		
+		
+		String jpql2 = "select u from Product u";
+		Query query2 = entityManager.createQuery(jpql2);
+		
+		
+		List<Product> products = (List<Product> )  query2.getResultList(); 
+		
+	
+	    int max  = 0 ;
+	    
+	    String productmaxname = "" ;
+	    
+ for (Product product2 : products) {
+			
+	
+	    	 int somm = 0 ; 
+	    	List<OrderLine>  ol =  product2.getOrderlines();
+	    	
+	    	for (OrderLine orderLine : ol) {
+	    		
+	    		somm += orderLine.getQuantity() ;
+	    		
+		    	}
+	    	if (somm >max) { max = somm ;
+    		productmaxname= product2.getName();
+				
+			}
+	    	
+	    	
+			
+		
+	}
+		
+		return productmaxname;
+		
 	}
 	
-	public Product BestProduct(){
-		
-		return null;
-	}
+	
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -212,6 +249,33 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 		String jpql = "select o from order o";
 		Query query = entityManager.createQuery(jpql);
 		return query.getResultList();
+	}
+
+	@Override
+	public Boolean AssignOrderLine(Product p, Order o, Float f, Integer qn) {
+		
+		
+		
+			OrderLine ol  = new OrderLine() ;
+			
+			OrderLineId olid = new OrderLineId();
+			olid.setIdOrder(o.getId());
+			olid.setIdProduct(p.getId());
+			
+			ol.setTotalPrice(f);
+			ol.setOrderlineid(olid);
+			ol.setQuantity(qn);
+			
+			entityManager.persist(ol);
+			return true ;
+	
+		
+		
+	}
+
+	@Override
+	public Order findOrderById(Integer idOrder ) {
+		return entityManager.find(Order.class, idOrder);
 	}
 
 

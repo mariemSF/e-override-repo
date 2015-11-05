@@ -74,7 +74,7 @@ public class Provider implements Serializable {
 	public void setAddress(String Address) {
 		this.address = Address;
 	}
-	@OneToMany(mappedBy="provider")
+	@OneToMany(fetch=FetchType.EAGER,mappedBy="provider")
 	public List<Product> getProducts() {
 		return products;
 	}

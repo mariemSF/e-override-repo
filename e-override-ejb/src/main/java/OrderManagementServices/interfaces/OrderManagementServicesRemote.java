@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.ejb.Remote;
 
+import entities.Client;
 import entities.Order;
 import entities.Basket;
 import entities.OrderLine;
@@ -25,7 +26,7 @@ public interface OrderManagementServicesRemote {
 
 	//List<Product> findAllProductsByBasketId(Integer idBasket);
 
-	List<Order> nbrOrdersByProduct(Integer idProduct, Integer quantity);
+	String BestProduct();
 
 	List<Order> findAllOrdersByProductId(Integer idProduct);
 
@@ -43,11 +44,11 @@ public interface OrderManagementServicesRemote {
 	
 	List<Product> findAllProductsByIdProvider(Integer idProvider);
 	
-	Product BestProduct();
-
 	List<Order> findAllOrders();
+	Order findOrderById(Integer idOrder);
 	
 	List<Product> findAllProducts();
 
-	Boolean AddOrder(Integer idProduct, OrderLine orderLine);
+	Boolean AddOrder(Client c);
+	Boolean AssignOrderLine(Product p , Order o , Float f , Integer qn);
 }

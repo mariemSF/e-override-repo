@@ -23,7 +23,7 @@ public interface DevelopmentShopServicesRemote {
 	Provider findProviderByName(String providerName);
 	Provider findProviderById(Integer idProvider);
 	List<Provider> findAllProvidersByCategory(String categoryName);
-	List<Provider> findAllProvidersByIdProduct(Integer idProduct);
+	Provider findProviderByIdProduct(Integer idProduct);
 	Boolean deleteClientById(Integer IdClient);
 	Boolean deleteProviderById(Integer IdProvider);
 }

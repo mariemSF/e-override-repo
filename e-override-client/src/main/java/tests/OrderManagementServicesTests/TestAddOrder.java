@@ -4,7 +4,9 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
 import entities.Basket;
+import entities.Client;
 import entities.OrderLine;
 import entities.Product;
 import entities.Provider;
@@ -16,9 +18,14 @@ public class TestAddOrder {
 		Context context = new InitialContext();
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
+		
+		DevelopmentShopServicesRemote proxydev = (DevelopmentShopServicesRemote) context
+				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
 
-		OrderLine orderLine = new OrderLine();
-        System.out.println(proxy.AddOrder(1, orderLine));
+		Client client =proxydev.findClientById(1) ;
+
+		
+        System.out.println(proxy.AddOrder(client));
 	}
 
 }

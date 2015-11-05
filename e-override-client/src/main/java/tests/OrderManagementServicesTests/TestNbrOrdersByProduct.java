@@ -8,6 +8,7 @@ import javax.naming.NamingException;
 
 import OrderManagementServices.interfaces.OrderManagementServicesRemote;
 import entities.Order;
+import entities.Product;
 
 public class TestNbrOrdersByProduct {
 
@@ -16,10 +17,10 @@ public class TestNbrOrdersByProduct {
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
 
-		List<Order> orders = proxy.nbrOrdersByProduct(1, 20);
-		for (Order o : orders) {
-			System.out.println(o.getId() + o.getQuantity());
-		}
+		String nameProduct = proxy.BestProduct();
+		
+			System.out.println(nameProduct);
+		
 	}
 
 

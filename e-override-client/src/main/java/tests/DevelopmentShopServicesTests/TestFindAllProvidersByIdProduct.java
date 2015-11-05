@@ -6,6 +6,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import OrderManagementServices.interfaces.OrderManagementServicesRemote;
 import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
 import entities.Provider;
 
@@ -14,13 +15,13 @@ public class TestFindAllProvidersByIdProduct {
 
 	public static void main(String[] args) throws NamingException {
 		Context context = new InitialContext();
-		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
-				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
-
-		List<Provider> providers = proxy.findAllProvidersByIdProduct(1);
-		for (Provider p : providers) {
-			System.out.println(p.getName());
-		}
+		
+			
+		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
+				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
+		
+		System.out.print(proxy.findProductById(9).getProvider().getName());
+		
 	}
 
 }

@@ -101,7 +101,10 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 
 	@Override
 	public Client findClientByName(String clientName) {
-		return entityManager.find(Client.class, clientName);
+		String jpql = "select c from Client c where c.name=:param";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", clientName);
+		return (Client) query.getResultList().get(0);
 	}
 
 	@Override
@@ -120,34 +123,64 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 
 	@Override
 	public Provider findProviderByName(String providerName) {
-		return entityManager.find(Provider.class, providerName);
+		
+		String jpql = "select c from Provider c where c.name=:param";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("param", providerName);
+		return (Provider) query.getResultList().get(0);
 	}
 
 	@Override
 	public Provider findProviderById(Integer idProvider) {
-		return entityManager.find(Provider.class, idProvider);
+		return (Provider) entityManager.find(Provider.class, idProvider);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Provider> findAllProvidersByCategory(String categoryName) {
-		Product product = entityManager.find(Product.class,
-				categoryName);
-		String jpql = "select p from Provider p where p.products.category=:param";
-		Query query = entityManager.createQuery(jpql);
-		query.setParameter("param", product);
-		return query.getResultList();
+		
+		List<Provider>  providers = null ;
+		//List<Provider>  providersWithCategy = null ;
+		try {
+			
+			
+			String jpql = "select p from Provider p";
+			Query query = entityManager.createQuery(jpql);
+			//query.setParameter("param", categoryName);
+			 providers =  (List<Provider>)query.getResultList();
+			 
+			 for (Provider provider : providers) {
+				 Boolean flag =  true ;
+				 List<Product>  products = provider.getProducts() ;
+				 for (Product product : products) {
+					 
+					 if( product.getCategory().equals(categoryName)){
+						  flag = false ;
+						 					 }
+					 
+					
+				}
+				 if(flag) providers.remove(provider);
+				
+			}
+			 
+			 return providers ;
+		} catch (Exception e) {
+			
+			System.out.print("Problem providers ");
+			return providers ; 
+		}
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Provider> findAllProvidersByIdProduct(Integer idProduct) {
+	public Provider findProviderByIdProduct(Integer idProduct) {
 		Product product = entityManager.find(Product.class,
 				idProduct);
-		String jpql = "select p from Provider p where p.products.id=:param";
+		String jpql = "select p from Product p where p.provider.id=:param";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", product);
-		return query.getResultList();
+		return null ;
 	}
 
 

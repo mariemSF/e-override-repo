@@ -6,7 +6,9 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import OrderManagementServices.interfaces.OrderManagementServicesRemote;
 import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
+import entities.Product;
 import entities.Provider;
 
 public class TestFindAllProvidersByCategory {
@@ -15,12 +17,25 @@ public class TestFindAllProvidersByCategory {
 		Context context = new InitialContext();
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
 				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
-
-		List<Provider> providers = proxy.findAllProvidersByCategory("iphone");
+	
+		OrderManagementServicesRemote proxy1 = (OrderManagementServicesRemote) context
+				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
+      if(!proxy1.findAllProductsByCategory("tv").isEmpty()){
+		List<Provider> providers = proxy.findAllProvidersByCategory("tv");
 		for (Provider p : providers) {
-			System.out.println(p.getName());
+			
+			
+				System.out.println(p.getName() );
+				
+			
+			
 		}
 
+	}else{
+		System.out.println("no provider " );
+		
+		
+	}
 	}
 
 }

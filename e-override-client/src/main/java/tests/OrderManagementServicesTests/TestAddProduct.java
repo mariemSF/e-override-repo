@@ -18,9 +18,11 @@ public class TestAddProduct {
 		
 		Provider provider = new Provider();
         provider.setId(1);
-        Product product = new Product("iphone", 1200, 400, provider);
+        Product product = new Product("mariem","iphone", 1200, 400, provider);
 
         System.out.println(proxy.addProduct(product));
+        
+       
 	}
 
 }

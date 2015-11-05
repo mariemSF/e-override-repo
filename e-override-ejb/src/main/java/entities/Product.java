@@ -56,6 +56,16 @@ public class Product implements Serializable {
 
 
 
+	public Product(String name, String category, Integer price,
+			Integer quantity, Provider provider) {
+		super();
+		this.name = name;
+		this.category = category;
+		this.price = price;
+		this.quantity = quantity;
+		this.provider = provider;
+	}
+
 	public Product(String category, Integer price, Integer quantity,
 			Provider provider) {
 		super();
@@ -103,7 +113,7 @@ public class Product implements Serializable {
 	public void setProvider(Provider provider) {
 		this.provider = provider;
 	}
-	@OneToMany(mappedBy="product",cascade = CascadeType.PERSIST)
+	@OneToMany(fetch=FetchType.EAGER,mappedBy="product",cascade = CascadeType.PERSIST)
 	public List <OrderLine> getOrderlines() {
 		return orderLines;
 	}

@@ -25,12 +25,13 @@ public class Order implements Serializable {
 	private Client client;
 	private List<OrderLine> orderLines;
 	private List<Feedback> feedbacks;
-	private Delivery delivery;
+	//private Delivery delivery;
 
 	public Order() {
 		super();
 	}   
-	@Id    
+	@Id  
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}
@@ -79,12 +80,12 @@ public class Order implements Serializable {
 	public void setFeedbacks(List<Feedback> feedbacks) {
 		this.feedbacks = feedbacks;
 	}
-	@ManyToOne
-	public Delivery getDelivery() {
-		return delivery;
-	}
-	public void setDelivery(Delivery delivery) {
-		this.delivery = delivery;
-	}
+	//@ManyToOne
+	//public Delivery getDelivery() {
+	//	return delivery;
+	//}
+	//public void setDelivery(Delivery delivery) {
+	//	this.delivery = delivery;
+	//}
 		
 }
