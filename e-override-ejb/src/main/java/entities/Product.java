@@ -16,6 +16,8 @@ import javax.persistence.*;
 public class Product implements Serializable {
 
 	
+	
+
 	private Integer id;
 	private String name;
 	private String category;
@@ -30,6 +32,11 @@ public class Product implements Serializable {
 	public Product() {
 		super();
 	}   
+
+	public Product(Integer id) {
+		super();
+		this.id = id;
+	}
 
 
 	public Product(String name, String category, Integer price,

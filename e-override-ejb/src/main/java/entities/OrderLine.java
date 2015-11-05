@@ -14,6 +14,7 @@ import javax.persistence.*;
 public class OrderLine implements Serializable {
 
 	
+	
 	private Integer quantity;
 	private Float totalPrice;
 	private OrderLineId orderlineid;
@@ -25,6 +26,7 @@ public class OrderLine implements Serializable {
 	public OrderLine() {
 		super();
 	}   
+	
 	public Integer getQuantity() {
 		return this.quantity;
 	}
@@ -57,7 +59,7 @@ public class OrderLine implements Serializable {
 	}
 	
 	@JoinColumn(name="id_product",referencedColumnName="id",insertable=false,updatable=false)
-	@ManyToOne
+	@ManyToOne( cascade=CascadeType.PERSIST)
 	public Product getProduct() {
 		return product;
 	}
@@ -66,7 +68,7 @@ public class OrderLine implements Serializable {
 	}
 	
 	@JoinColumn(name="id_order",referencedColumnName="id",insertable=false,updatable=false)
-	@ManyToOne
+	@ManyToOne( cascade=CascadeType.PERSIST)
 	public Order getOrder() {
 		return order;
 	}

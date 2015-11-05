@@ -95,15 +95,12 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 	}
 
 	@Override
-	public Boolean AddProductToBasket(List<Product> products, Basket basket) {
+	public Boolean AddOrder(Integer idProduct, OrderLine orderLine) {
 		Boolean b = false;
 		try {
-			//List<Product> products = findAllProductsByBasketId(basket.getId()); : on va lutiliser dans AddCommand()
-			
-			//products.add(product);
-			
-			//basket.linkProductsToBasket(product);
-			entityManager.persist(basket);
+			Product product = findProductById(idProduct);//on va lutiliser dans AddCommand()
+			orderLine.setProduct(product);
+			entityManager.persist(orderLine);
 			b = true;
 		} catch (Exception e) {
 		}
