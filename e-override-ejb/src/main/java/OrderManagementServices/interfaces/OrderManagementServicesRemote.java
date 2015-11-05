@@ -45,6 +45,8 @@ public interface OrderManagementServicesRemote {
 	
 	Product BestProduct();
 
+	List<Order> findAllOrders();
+	
 	List<Product> findAllProducts();
 
 	Boolean AddOrder(Integer idProduct, OrderLine orderLine);
