@@ -15,15 +15,15 @@ public interface OrderManagementServicesRemote {
 
 	List<Order> findAllOrdersByCategory(String ProductCategory);
 
-	List<Order> findAllOrdersByOrderDate(String OrderDate);
+	List<Order> findAllOrdersByOrderDate(Date OrderDate);
 
-	List<Order> findAllOrdersByDeliveryDate(String DeliveryDate);
+	List<Order> findAllOrdersByDeliveryDate(Date DeliveryDate);
 
 	List<Order> findAllOrdersByClientName(String ClientName);
 
 	List<Product> findAllProductsByIdOrder(Integer OrderId);
 
-	List<Product> findAllProductsByBasketId(Integer idBasket);
+	//List<Product> findAllProductsByBasketId(Integer idBasket);
 
 	List<Order> nbrOrdersByProduct(Integer idProduct, Integer quantity);
 
@@ -42,6 +42,8 @@ public interface OrderManagementServicesRemote {
 	List<Product> findAllProductsByProviderName(String pName);
 	
 	List<Product> findAllProductsByIdProvider(Integer idProvider);
+	
+	Product BestProduct();
 
 	List<Product> findAllProducts();
 

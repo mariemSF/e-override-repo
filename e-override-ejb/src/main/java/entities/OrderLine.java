@@ -27,6 +27,7 @@ public class OrderLine implements Serializable {
 		super();
 	}   
 	
+	
 	public Integer getQuantity() {
 		return this.quantity;
 	}

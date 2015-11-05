@@ -1,5 +1,6 @@
 package OrderManagementServices.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import entities.Order;
@@ -34,17 +35,16 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Order> findAllOrdersByCategory(String ProductCategory) {
-		//List<Product> product = findAllProductsByCategory(Product.getCategory());
-		//teams.add(team);
-		String jpql = "select c from Order c where c.product.category=:param";
+		List<Product> product = findAllProductsByCategory(ProductCategory);
+		String jpql = "select c from Order c where c.orderlines.product.category=:param";
 		Query query = entityManager.createQuery(jpql);
-		query.setParameter("param", ProductCategory);
-		return query.getResultList();
+		query.setParameter("param", product);
+		return query.getResultList();		
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Order> findAllOrdersByOrderDate(String OrderDate) {
+	public List<Order> findAllOrdersByOrderDate(Date OrderDate) {
 		String jpql = "select c from Order c where c.dateOrder=:param";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", OrderDate);
@@ -53,17 +53,15 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Order> findAllOrdersByDeliveryDate(String DeliveryDate) {
-		String jpql = "select c from Order c where c.dateDelivery=:param";
+	public List<Order> findAllOrdersByDeliveryDate(Date DeliveryDate) {
+		String jpql = "select c from Order c where c.delivery.deliveryDate=:param";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", DeliveryDate);
 		return query.getResultList();
 	}
 
 	
-
-
-	@SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
 	@Override
 	public List<Product> findAllProductsByIdOrder(Integer OrderId) {
 		Order Order = entityManager.find(Order.class,
@@ -83,7 +81,7 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 		return query.getResultList();
 	}
 	
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	@Override
 	public List<Product> findAllProductsByBasketId(Integer idBasket) {
 		Basket basket = entityManager.find(Basket.class,
@@ -92,13 +90,13 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", basket);
 		return query.getResultList();
-	}
+	}*/
 
 	@Override
 	public Boolean AddOrder(Integer idProduct, OrderLine orderLine) {
 		Boolean b = false;
 		try {
-			Product product = findProductById(idProduct);//on va lutiliser dans AddCommand()
+			Product product = findProductById(idProduct);
 			orderLine.setProduct(product);
 			entityManager.persist(orderLine);
 			b = true;
@@ -117,6 +115,11 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 		//return query.;//type de retour de query, jamais integer
 		//return query.getFirstResult();
 		return query.getResultList();
+	}
+	
+	public Product BestProduct(){
+		
+		return null;
 	}
 
 	@SuppressWarnings("unchecked")

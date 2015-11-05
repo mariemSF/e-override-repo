@@ -20,12 +20,12 @@ public class Order implements Serializable {
 	private Integer id;
 	private Float totalPrice;
 	private Integer quantity;
-	private Date dateOrder;
-	private Date dateDelivery;
+	private Date orderDate;
 	private static final long serialVersionUID = 1L;
 	private Client client;
 	private List<OrderLine> orderLines;
-	
+	private List<Feedback> feedbacks;
+	private Delivery delivery;
 
 	public Order() {
 		super();
@@ -53,16 +53,10 @@ public class Order implements Serializable {
 		this.quantity = Quantity;
 	}
 	public Date getDateOrder() {
-		return dateOrder;
+		return orderDate;
 	}
 	public void setDateOrder(Date dateOrder) {
-		this.dateOrder = dateOrder;
-	}
-	public Date getDateDelivery() {
-		return dateDelivery;
-	}
-	public void setDateDelivery(Date dateDelivery) {
-		this.dateDelivery = dateDelivery;
+		this.orderDate = dateOrder;
 	}
 	@ManyToOne
 	public Client getClient() {
@@ -71,12 +65,26 @@ public class Order implements Serializable {
 	public void setClient(Client client) {
 		this.client = client;
 	}
-	@OneToMany(mappedBy="order")
+	@OneToMany(mappedBy="order",cascade = CascadeType.PERSIST)
 	public List<OrderLine> getOrderLines() {
 		return orderLines;
 	}
 	public void setOrderLines(List<OrderLine> orderLines) {
 		this.orderLines = orderLines;
+	}
+	@OneToMany(mappedBy="order")
+	public List<Feedback> getFeedbacks() {
+		return feedbacks;
+	}
+	public void setFeedbacks(List<Feedback> feedbacks) {
+		this.feedbacks = feedbacks;
+	}
+	@ManyToOne
+	public Delivery getDelivery() {
+		return delivery;
+	}
+	public void setDelivery(Delivery delivery) {
+		this.delivery = delivery;
 	}
 		
 }

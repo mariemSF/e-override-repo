@@ -103,7 +103,7 @@ public class Product implements Serializable {
 	public void setProvider(Provider provider) {
 		this.provider = provider;
 	}
-	@OneToMany(mappedBy="product")
+	@OneToMany(mappedBy="product",cascade = CascadeType.PERSIST)
 	public List <OrderLine> getOrderlines() {
 		return orderLines;
 	}
