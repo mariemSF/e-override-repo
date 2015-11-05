@@ -207,7 +207,6 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 		return entityManager.find(Product.class, idProduct);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Order> findAllOrders() {
 		String jpql = "select o from order o";
