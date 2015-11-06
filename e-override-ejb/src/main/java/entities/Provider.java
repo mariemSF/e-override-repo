@@ -24,7 +24,6 @@ public class Provider implements Serializable {
 	private String address;
 	private static final long serialVersionUID = 1L;
 	private List<Product> products;
-	private List<Feedback> feedbacks;
 
 	public Provider() {
 		super();
@@ -93,13 +92,6 @@ public class Provider implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	@OneToMany(mappedBy="provider")
-	public List<Feedback> getFeedbacks() {
-		return feedbacks;
-	}
-
-	public void setFeedbacks(List<Feedback> feedbacks) {
-		this.feedbacks = feedbacks;
-	}
+	
    
 }

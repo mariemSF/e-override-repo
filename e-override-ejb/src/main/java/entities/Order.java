@@ -25,7 +25,6 @@ public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Client client;
 	private List<OrderLine> orderLines;
-	private List<Feedback> feedbacks;
 	//private Delivery delivery;
 
 	public Order() {
@@ -74,13 +73,7 @@ public class Order implements Serializable {
 	public void setOrderLines(List<OrderLine> orderLines) {
 		this.orderLines = orderLines;
 	}
-	@OneToMany(mappedBy="order")
-	public List<Feedback> getFeedbacks() {
-		return feedbacks;
-	}
-	public void setFeedbacks(List<Feedback> feedbacks) {
-		this.feedbacks = feedbacks;
-	}
+	
 	//@ManyToOne
 	//public Delivery getDelivery() {
 	//	return delivery;

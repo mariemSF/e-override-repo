@@ -36,7 +36,6 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<OrderLine> findAllOrdersByCategory(String ProductCategory) {
-		//List<Product> product = findAllProductsByCategory(ProductCategory);
 		String jpql = "select o from OrderLine o where o.product.category=:param";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", ProductCategory);
@@ -83,11 +82,9 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 	/*@SuppressWarnings("unchecked")
 	@Override
 	public List<Product> findAllProductsByBasketId(Integer idBasket) {
-		Basket basket = entityManager.find(Basket.class,
-				idBasket);
 		String jpql = "select p from Products p where p.basket.id=:param";
 		Query query = entityManager.createQuery(jpql);
-		query.setParameter("param", basket);
+		query.setParameter("param", idBasket);
 		return query.getResultList();
 	}*/
 
@@ -248,25 +245,20 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 	}
 
 	@Override
-	public Boolean AssignOrderLine(Product p, Order o, Float f, Integer qn) {
-		
-		
-		
-			OrderLine ol  = new OrderLine() ;
+	public Boolean AssignOrderLine(Product p, Order o, Float totalPrice, Integer quantity) {
+		   
+		    OrderLine orderLine  = new OrderLine() ;
 			
-			OrderLineId olid = new OrderLineId();
-			olid.setIdOrder(o.getId());
-			olid.setIdProduct(p.getId());
+			OrderLineId orderLineId = new OrderLineId();
+			orderLineId.setIdOrder(o.getId());
+			orderLineId.setIdProduct(p.getId());
 			
-			ol.setTotalPrice(f);
-			ol.setOrderlineid(olid);
-			ol.setQuantity(qn);
+			orderLine.setTotalPrice(totalPrice);
+			orderLine.setOrderlineid(orderLineId);
+			orderLine.setQuantity(quantity);
 			
-			entityManager.persist(ol);
+			entityManager.persist(orderLine);
 			return true ;
-	
-		
-		
 	}
 
 	@Override

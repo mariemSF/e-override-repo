@@ -24,7 +24,7 @@ public class TestAddProduct {
         
         Provider provider2 = new Provider();
         provider2.setId(2);
-        Product product2 = new Product("TCL","TV", 2200, 10, provider2);
+        Product product2 = new Product("Nokia","Mobile", 1600, 10, provider2);
 
        //System.out.println(proxy.addProduct(product1));
         System.out.println(proxy.addProduct(product2));

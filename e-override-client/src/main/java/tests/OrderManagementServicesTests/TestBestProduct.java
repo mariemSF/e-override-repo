@@ -7,10 +7,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import OrderManagementServices.interfaces.OrderManagementServicesRemote;
-import entities.Order;
-import entities.Product;
 
-public class TestNbrOrdersByProduct {
+public class TestBestProduct {
 
 	public static void main(String[] args)throws NamingException  {
 		Context context = new InitialContext();
@@ -19,7 +17,7 @@ public class TestNbrOrdersByProduct {
 
 		String nameProduct = proxy.BestProduct();
 		
-			System.out.println(nameProduct);
+			System.out.println("The Best Product is : "+nameProduct);
 		
 	}
 

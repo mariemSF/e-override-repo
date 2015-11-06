@@ -48,5 +48,6 @@ public interface OrderManagementServicesRemote {
 	List<Product> findAllProducts();
 
 	Boolean AddOrder(Client c);
-	Boolean AssignOrderLine(Product p , Order o , Float f , Integer qn);
+	
+	Boolean AssignOrderLine(Product p , Order o , Float totalPrice, Integer quantity);
 }

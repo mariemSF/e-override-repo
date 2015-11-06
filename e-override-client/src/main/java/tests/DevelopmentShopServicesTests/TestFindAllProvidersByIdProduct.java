@@ -1,14 +1,12 @@
 package tests.DevelopmentShopServicesTests;
 
-import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import OrderManagementServices.interfaces.OrderManagementServicesRemote;
-import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
-import entities.Provider;
+
 
 
 public class TestFindAllProvidersByIdProduct {

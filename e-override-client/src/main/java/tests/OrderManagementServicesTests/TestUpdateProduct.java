@@ -15,9 +15,10 @@ public class TestUpdateProduct {
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
 
-		Product product = proxy.findProductById(1);
-		product.setCategory("voiture");
-		product.setPrice(18000);
+		Product product = proxy.findProductById(5);
+		product.setCategory("Car");
+		product.setName("KIA");
+		product.setPrice(20000);
 		product.setQuantity(1);
 
 		System.out.println(proxy.updateProduct(product));

@@ -140,33 +140,23 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 	public List<Provider> findAllProvidersByCategory(String categoryName) {
 		
 		List<Provider>  providers = null ;
-		//List<Provider>  providersWithCategy = null ;
 		try {
-			
-			
 			String jpql = "select p from Provider p";
 			Query query = entityManager.createQuery(jpql);
-			//query.setParameter("param", categoryName);
-			 providers =  (List<Provider>)query.getResultList();
+			providers =  (List<Provider>)query.getResultList();
 			 
-			 for (Provider provider : providers) {
-				 Boolean flag =  true ;
+			for (Provider provider : providers) {
+				 Boolean b =  true ;
 				 List<Product>  products = provider.getProducts() ;
 				 for (Product product : products) {
-					 
 					 if( product.getCategory().equals(categoryName)){
-						  flag = false ;
-						 					 }
-					 
-					
-				}
-				 if(flag) providers.remove(provider);
-				
+						  b = false ;
+					 }
+				 }
+				 if(b) providers.remove(provider);
 			}
-			 
-			 return providers ;
+			return providers ;
 		} catch (Exception e) {
-			
 			System.out.print("Problem providers ");
 			return providers ; 
 		}
