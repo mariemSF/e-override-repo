@@ -5,6 +5,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import entities.Product;
 import OrderManagementServices.interfaces.OrderManagementServicesRemote;
 
 public class TestFindProductById {
@@ -15,7 +16,8 @@ public class TestFindProductById {
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
 
 		
-			System.out.println(proxy.findProductById(1));
+			Product p = proxy.findProductById(1);
+			System.out.println(p.getName());
 		
 	}
 }

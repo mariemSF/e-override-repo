@@ -100,7 +100,7 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 			order.setClient(c);
 			order.setQuantity(0);
 			order.setDateOrder(new Date());
-			//order.setDeliveryDate(order.getDateOrder());
+			order.setDeliveryDate(order.getDateOrder());
 			Float f = new Float(0.0) ;
 			order.setTotalPrice(f);
 			
@@ -208,18 +208,16 @@ public class OrderManagementServices implements OrderManagementServicesRemote, O
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Product> findAllProductsByProviderName(String pName) {
-		Provider provider = entityManager.find(Provider.class,
-				pName);
-		String jpql = "select p from Product p where p.provider=:param";
+		String jpql = "select p from Product p where p.provider.name=:param";
 		Query query = entityManager.createQuery(jpql);
-		query.setParameter("param", provider);
+		query.setParameter("param", pName);
 		return query.getResultList();
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<OrderLine> findAllProductsByIdProvider(Integer idProvider) {
-		String jpql = "select o from OrderLine o where o.product.provider.id=:param";
+	public List<Product> findAllProductsByIdProvider(Integer idProvider) {
+		String jpql = "select p from Product p where p.provider.id=:param";
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("param", idProvider);
 		return query.getResultList();

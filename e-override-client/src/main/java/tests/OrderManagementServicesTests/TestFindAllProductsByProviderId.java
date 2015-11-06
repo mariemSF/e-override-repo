@@ -7,20 +7,23 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import OrderManagementServices.interfaces.OrderManagementServicesRemote;
-import entities.OrderLine;
 import entities.Product;
 
-public class TestFindAllProductsByIdProvider {
 
-	public static void main(String[] args)throws NamingException  {
+public class TestFindAllProductsByProviderId {
+
+	public static void main(String[] args) throws NamingException {
 		Context context = new InitialContext();
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
 
-		List<OrderLine> orderLines = proxy.findAllProductsByIdProvider(1);
-		for (OrderLine p : orderLines) {
-			System.out.println(p);
+		List<Product> products = proxy.findAllProductsByIdProvider(1);
+		for (Product p : products) {
+			System.out.println("Product_name : "+p.getName()+" Provider_name : "+p.getProvider().getName()+"\n");
+			
 		}
+
+
 	}
 
 }

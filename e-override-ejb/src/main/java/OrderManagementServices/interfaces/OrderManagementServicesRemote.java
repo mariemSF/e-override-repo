@@ -39,7 +39,7 @@ public interface OrderManagementServicesRemote {
 	
 	List<Product> findAllProductsByProviderName(String pName);
 	
-	List<OrderLine> findAllProductsByIdProvider(Integer idProvider);
+	List<Product> findAllProductsByIdProvider(Integer idProvider);
 	
 	List<OrderLine> findAllOrders();
 	
