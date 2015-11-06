@@ -12,7 +12,7 @@ import entities.Product;
 import entities.Provider;
 import OrderManagementServices.interfaces.OrderManagementServicesRemote;
 
-public class TestAssigneOrderLine {
+public class TestAssignProductToOrder {
 
 	public static void main(String[] args)throws NamingException  {
 		Context context = new InitialContext();
@@ -23,7 +23,7 @@ public class TestAssigneOrderLine {
 		Product p = proxy.findProductById(4);
 		Order o =  proxy.findOrderById(2);
 		
-        System.out.println(proxy.AssignOrderLine(p, o , new Float(1200.0), 1));
+        System.out.println(proxy.AssignProductToOrder(p, o , new Float(1200.0), 1));
 	}
 
 }

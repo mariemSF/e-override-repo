@@ -19,7 +19,6 @@ public interface DevelopmentShopServicesRemote {
 	List<Client> findAllClients();
 	Client findClientByName(String clientName);
 	Client findClientById(Integer idClient);
-	Client findClientByIdOrder(Integer idOrder);
 	Provider findProviderByName(String providerName);
 	Provider findProviderById(Integer idProvider);
 	List<Provider> findAllProvidersByCategory(String categoryName);

@@ -213,7 +213,7 @@ public class OrderManagementServices implements OrderManagementServicesRemote,
 	}
 
 	@Override
-	public Boolean AssignOrderLine(Product p, Order o, Float totalPrice,
+	public Boolean AssignProductToOrder(Product p, Order o, Float totalPrice,
 			Integer quantity) {
 
 		OrderLine orderLine = new OrderLine();

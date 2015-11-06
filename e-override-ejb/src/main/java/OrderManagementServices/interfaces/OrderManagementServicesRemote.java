@@ -49,5 +49,5 @@ public interface OrderManagementServicesRemote {
 
 	Boolean AddOrder(Client c);
 	
-	Boolean AssignOrderLine(Product p , Order o , Float totalPrice, Integer quantity);
+	Boolean AssignProductToOrder(Product p , Order o , Float totalPrice, Integer quantity);
 }
