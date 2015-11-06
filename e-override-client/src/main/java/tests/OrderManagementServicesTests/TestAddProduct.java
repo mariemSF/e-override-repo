@@ -16,11 +16,19 @@ public class TestAddProduct {
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
 		
-		Provider provider = new Provider();
-        provider.setId(1);
-        Product product = new Product("mariem","iphone", 1200, 400, provider);
+		/*Provider provider1 = new Provider();
+        provider1.setId(1);
+        Product product1 = new Product("iphone","Mobile", 1200, 40, provider1);
+        Product product3 = new Product("dell","PC", 1700, 1, provider1);*/
 
-        System.out.println(proxy.addProduct(product));
+        
+        Provider provider2 = new Provider();
+        provider2.setId(2);
+        Product product2 = new Product("TCL","TV", 2200, 10, provider2);
+
+       //System.out.println(proxy.addProduct(product1));
+        System.out.println(proxy.addProduct(product2));
+        //System.out.println(proxy.addProduct(product3));
         
        
 	}

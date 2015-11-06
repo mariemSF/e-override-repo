@@ -8,6 +8,7 @@ import javax.naming.NamingException;
 
 import OrderManagementServices.interfaces.OrderManagementServicesRemote;
 import entities.Order;
+import entities.OrderLine;
 
 public class TestFindAllOrdersByProductId {
 
@@ -16,9 +17,9 @@ public class TestFindAllOrdersByProductId {
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
 
-		List<Order> orders = proxy.findAllOrdersByProductId(1);
-		for (Order o : orders) {
-			System.out.println(o.getOrderLines());
+		List<OrderLine> orderLines = proxy.findAllOrdersByProductId(2);
+		for (OrderLine o : orderLines) {
+			System.out.println(o.getOrder().getId()+" "+o.getProduct().getName());
 		}
 	}
 

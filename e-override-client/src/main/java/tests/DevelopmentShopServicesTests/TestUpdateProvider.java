@@ -14,10 +14,12 @@ public class TestUpdateProvider {
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
 				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
 
-		Provider provider = proxy.findProviderById(1);
+		Provider provider = proxy.findProviderById(3);
 		provider.setName("brahim");
 
 		System.out.println(proxy.updateProvider(provider));
+		System.out.println("Your New Name is "+provider.getName());
+
 	}
 
 }

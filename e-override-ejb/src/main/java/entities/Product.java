@@ -26,7 +26,6 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Provider provider;
 	private List <OrderLine> orderLines;
-	private Basket basket;
 	
 
 	public Product() {
@@ -40,23 +39,6 @@ public class Product implements Serializable {
 
 
 	public Product(String name, String category, Integer price,
-			Integer quantity, Provider provider,Basket basket) {
-		super();
-		this.name = name;
-		this.category = category;
-		this.price = price;
-		this.quantity = quantity;
-		this.provider = provider;
-		this.basket = basket;
-	}
-
-
-
-
-
-
-
-	public Product(String name, String category, Integer price,
 			Integer quantity, Provider provider) {
 		super();
 		this.name = name;
@@ -65,6 +47,7 @@ public class Product implements Serializable {
 		this.quantity = quantity;
 		this.provider = provider;
 	}
+
 
 	public Product(String category, Integer price, Integer quantity,
 			Provider provider) {
@@ -120,15 +103,6 @@ public class Product implements Serializable {
 	public void setOrderlines(List <OrderLine> orderlines) {
 		this.orderLines = orderlines;
 	}
-	@ManyToOne
-	public Basket getBasket() {
-		return basket;
-	}
-	public void setBasket(Basket basket) {
-		this.basket = basket;
-	}
-
-
 	public String getName() {
 		return name;
 	}

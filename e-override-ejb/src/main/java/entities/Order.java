@@ -21,6 +21,7 @@ public class Order implements Serializable {
 	private Float totalPrice;
 	private Integer quantity;
 	private Date orderDate;
+	private Date DeliveryDate;
 	private static final long serialVersionUID = 1L;
 	private Client client;
 	private List<OrderLine> orderLines;
@@ -87,5 +88,11 @@ public class Order implements Serializable {
 	//public void setDelivery(Delivery delivery) {
 	//	this.delivery = delivery;
 	//}
+	public Date getDeliveryDate() {
+		return DeliveryDate;
+	}
+	public void setDeliveryDate(Date deliveryDate) {
+		DeliveryDate = deliveryDate;
+	}
 		
 }

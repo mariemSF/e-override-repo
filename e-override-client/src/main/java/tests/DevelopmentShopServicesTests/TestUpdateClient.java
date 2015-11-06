@@ -18,10 +18,11 @@ public class TestUpdateClient {
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
 				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
 
-		Client client = proxy.findClientById(1);
-		client.setName("ahmed");
+		Client client = proxy.findClientById(3);
+		client.setName("client3");
 
 		System.out.println(proxy.updateClient(client));
+		System.out.println("Your New Name is "+client.getName());
 	}
 
 }

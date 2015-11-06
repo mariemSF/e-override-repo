@@ -14,7 +14,7 @@ public class TestDeleteProductById {
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
 
-		System.out.println(proxy.deleteproductById(2));
+		System.out.println(proxy.deleteproductById(3));
 	}
 
 }

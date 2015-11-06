@@ -5,7 +5,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
-import entities.Basket;
 import entities.Client;
 import entities.Order;
 import entities.OrderLine;
@@ -21,10 +20,10 @@ public class TestAssigneOrderLine {
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
 		
 		
-		Product p = proxy.findProductById(2);
-		Order o =  proxy.findOrderById(1);
+		Product p = proxy.findProductById(4);
+		Order o =  proxy.findOrderById(2);
 		
-        System.out.println(proxy.AssignOrderLine(p, o , new Float(10.0), 5));
+        System.out.println(proxy.AssignOrderLine(p, o , new Float(1200.0), 1));
 	}
 
 }

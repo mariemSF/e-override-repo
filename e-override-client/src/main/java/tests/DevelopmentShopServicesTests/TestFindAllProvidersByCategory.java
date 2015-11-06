@@ -20,22 +20,15 @@ public class TestFindAllProvidersByCategory {
 	
 		OrderManagementServicesRemote proxy1 = (OrderManagementServicesRemote) context
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
-      if(!proxy1.findAllProductsByCategory("tv").isEmpty()){
-		List<Provider> providers = proxy.findAllProvidersByCategory("tv");
-		for (Provider p : providers) {
-			
-			
-				System.out.println(p.getName() );
-				
-			
-			
+      
+		if(!proxy1.findAllProductsByCategory("tv").isEmpty()){
+		      List<Provider> providers = proxy.findAllProvidersByCategory("TV");
+		      for (Provider p : providers) {
+			         System.out.println(p.getName());
+		      }
+        }else{
+		     System.out.println("No Provider");
 		}
-
-	}else{
-		System.out.println("no provider " );
-		
-		
-	}
 	}
 
 }

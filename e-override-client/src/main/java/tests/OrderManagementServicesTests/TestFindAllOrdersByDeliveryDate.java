@@ -10,6 +10,8 @@ import javax.naming.NamingException;
 
 import OrderManagementServices.interfaces.OrderManagementServicesRemote;
 import entities.Order;
+import entities.OrderLine;
+import entities.Product;
 
 public class TestFindAllOrdersByDeliveryDate {
 
@@ -18,12 +20,13 @@ public class TestFindAllOrdersByDeliveryDate {
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
 
+
 		 SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
 
-
-		List<Order> orders = proxy.findAllOrdersByDeliveryDate(dateformat3.parse("10/09/2015"));
-		System.out.println(orders.size());
-
+		List<OrderLine> orderLines = proxy.findAllOrdersByDeliveryDate(dateformat3.parse("10/09/2015"));
+		for (OrderLine o : orderLines) {
+			System.out.println(o.getOrder().getId());
+		}
 	}
 
 }

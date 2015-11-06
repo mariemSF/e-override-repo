@@ -5,11 +5,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
-import entities.Basket;
 import entities.Client;
-import entities.OrderLine;
-import entities.Product;
-import entities.Provider;
+
 import OrderManagementServices.interfaces.OrderManagementServicesRemote;
 
 public class TestAddOrder {

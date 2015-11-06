@@ -14,7 +14,7 @@ public class TestLoginProvider {
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
 				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
 
-		Provider providerLoggedIn = proxy.loginProvider("Aloulou", "3cinfo3");
+		Provider providerLoggedIn = proxy.loginProvider("pro2", "2cinfo3");
 
 		System.out.println("Welcome " + providerLoggedIn.getName());
 

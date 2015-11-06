@@ -16,9 +16,9 @@ public class TestFindAllProductsByCategory {
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
 
-		List<Product> products = proxy.findAllProductsByCategory("AB");
+		List<Product> products = proxy.findAllProductsByCategory("TV");
 		for (Product p : products) {
-			System.out.println(p);
+			System.out.println(p.getName()+" Price : "+p.getPrice());
 		}
 	}
 

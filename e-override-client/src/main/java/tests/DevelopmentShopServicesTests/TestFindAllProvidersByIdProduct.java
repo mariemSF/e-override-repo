@@ -20,7 +20,7 @@ public class TestFindAllProvidersByIdProduct {
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
 		
-		System.out.print(proxy.findProductById(9).getProvider().getName());
+		System.out.print(proxy.findProductById(4).getProvider().getName());
 		
 	}
 

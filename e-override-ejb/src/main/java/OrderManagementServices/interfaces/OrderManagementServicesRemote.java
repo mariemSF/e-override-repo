@@ -7,28 +7,25 @@ import javax.ejb.Remote;
 
 import entities.Client;
 import entities.Order;
-import entities.Basket;
 import entities.OrderLine;
 import entities.Product;
 
 @Remote
 public interface OrderManagementServicesRemote {
 
-	List<Order> findAllOrdersByCategory(String ProductCategory);
+	List<OrderLine> findAllOrdersByCategory(String ProductCategory);
 
-	List<Order> findAllOrdersByOrderDate(Date OrderDate);
+	List<OrderLine> findAllOrdersByOrderDate(Date OrderDate);
 
-	List<Order> findAllOrdersByDeliveryDate(Date DeliveryDate);
+	List<OrderLine> findAllOrdersByDeliveryDate(Date DeliveryDate);
 
-	List<Order> findAllOrdersByClientName(String ClientName);
+	List<OrderLine> findAllOrdersByClientName(String ClientName);
 
-	List<Product> findAllProductsByIdOrder(Integer OrderId);
-
-	//List<Product> findAllProductsByBasketId(Integer idBasket);
+	List<OrderLine> findAllProductsByIdOrder(Integer IdOrder);
 
 	String BestProduct();
 
-	List<Order> findAllOrdersByProductId(Integer idProduct);
+	List<OrderLine> findAllOrdersByProductId(Integer idProduct);
 
 	Boolean updateProduct(Product product);
 	
@@ -42,9 +39,10 @@ public interface OrderManagementServicesRemote {
 	
 	List<Product> findAllProductsByProviderName(String pName);
 	
-	List<Product> findAllProductsByIdProvider(Integer idProvider);
+	List<OrderLine> findAllProductsByIdProvider(Integer idProvider);
 	
-	List<Order> findAllOrders();
+	List<OrderLine> findAllOrders();
+	
 	Order findOrderById(Integer idOrder);
 	
 	List<Product> findAllProducts();

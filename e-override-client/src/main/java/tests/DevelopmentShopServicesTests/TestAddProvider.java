@@ -14,9 +14,14 @@ public class TestAddProvider {
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
 				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
 
-		Provider provider = new Provider("med", "momou", "3cinfo3");
+		Provider provider1 = new Provider("provider1", "pro1", "1cinfo3");
+		Provider provider2 = new Provider("provider2", "pro2", "2cinfo3");
+		Provider provider3 = new Provider("provider3", "pro3", "3cinfo3");
 
-		System.out.println(proxy.addProvider(provider));
+
+		System.out.println(proxy.addProvider(provider1));
+		System.out.println(proxy.addProvider(provider2));
+		System.out.println(proxy.addProvider(provider3));
 
 	}
 

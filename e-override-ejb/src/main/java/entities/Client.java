@@ -24,7 +24,6 @@ public class Client implements Serializable {
 	private Integer phoneNumber;
 	private static final long serialVersionUID = 1L;
 	private List<Order> orders;
-	private Basket basket;
 	private List <Feedback>feedbacks;
 	
 
@@ -106,13 +105,7 @@ public class Client implements Serializable {
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
-	@OneToOne(mappedBy="client")
-	public Basket getBasket() {
-		return basket;
-	}
-	public void setBasket(Basket basket) {
-		this.basket = basket;
-	}
+	
 	@OneToMany(mappedBy="client")
 	public List <Feedback> getFeedbacks() {
 		return feedbacks;

@@ -13,9 +13,9 @@ public class TestFindProviderByName {
 		Context context = new InitialContext();
 		DevelopmentShopServicesRemote proxy = (DevelopmentShopServicesRemote) context
 				.lookup("/e-override-ejb/DevelopmentShopServices!developmentShopServices.interfaces.DevelopmentShopServicesRemote");
-		Provider provider = proxy.findProviderByName("stoura");
+		Provider provider = proxy.findProviderByName("provider2");
 
-		System.out.println(" Hello " + provider.getName());
+		System.out.println(" Hello " + provider.getName()+"\n Your login is "+provider.getLogin()+"\n Your password is "+provider.getPassword());
 
 	}
 
