@@ -8,7 +8,6 @@ import javax.naming.NamingException;
 
 import OrderManagementServices.interfaces.OrderManagementServicesRemote;
 import developmentShopServices.interfaces.DevelopmentShopServicesRemote;
-import entities.Product;
 import entities.Provider;
 
 public class TestFindAllProvidersByCategory {
@@ -27,7 +26,7 @@ public class TestFindAllProvidersByCategory {
 			         System.out.println(p.getName());
 		      }
         }else{
-		     System.out.println("No Provider");
+		     System.out.println("No such category");
 		}
 	}
 

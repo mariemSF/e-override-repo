@@ -38,9 +38,9 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 		query.setParameter("param2", password);
 		Client client = null;
 		try {
-			client = (Client) query.getSingleResult();
+			client =(Client) query.getSingleResult();
 		} catch (Exception e) {
-			System.err.println("bad credentials");
+			System.err.println("error");
 		}
 		return client;
 	}
@@ -55,7 +55,7 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 		try {
 			provider = (Provider) query.getSingleResult();
 		} catch (Exception e) {
-			System.err.println("bad credentials");
+			System.err.println("error");
 		}
 		return provider;
 	}
@@ -157,20 +157,17 @@ public class DevelopmentShopServices implements DevelopmentShopServicesRemote, D
 			}
 			return providers ;
 		} catch (Exception e) {
-			System.out.print("Problem providers ");
+			System.out.print("Problem providers");
 			return providers ; 
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public Provider findProviderByIdProduct(Integer idProduct) {
-		Product product = entityManager.find(Product.class,
-				idProduct);
 		String jpql = "select p from Product p where p.provider.id=:param";
 		Query query = entityManager.createQuery(jpql);
-		query.setParameter("param", product);
-		return null ;
+		query.setParameter("param", idProduct);
+		return (Provider) query.getSingleResult();
 	}
 
 

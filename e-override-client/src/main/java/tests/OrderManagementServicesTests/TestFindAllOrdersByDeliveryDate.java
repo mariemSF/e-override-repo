@@ -23,8 +23,8 @@ public class TestFindAllOrdersByDeliveryDate {
 
 		 SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
 
-		List<OrderLine> orderLines = proxy.findAllOrdersByDeliveryDate(dateformat3.parse("10/09/2015"));
-		for (OrderLine o : orderLines) {
+		 List<OrderLine> orderLines = proxy.findAllOrdersByDeliveryDate(dateformat3.parse("10/09/2015"));
+		 for (OrderLine o : orderLines) {
 			System.out.println(o.getOrder().getId());
 		}
 	}

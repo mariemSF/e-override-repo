@@ -21,8 +21,7 @@ public class TestAddOrder {
 
 		Client client =proxydev.findClientById(1) ;
 
-		
-        System.out.println(proxy.AddOrder(client));
+		System.out.println(proxy.AddOrder(client));
 	}
 
 }

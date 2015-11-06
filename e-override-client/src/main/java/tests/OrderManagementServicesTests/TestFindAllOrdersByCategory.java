@@ -16,6 +16,7 @@ public class TestFindAllOrdersByCategory {
 		Context context = new InitialContext();
 		OrderManagementServicesRemote proxy = (OrderManagementServicesRemote) context
 				.lookup("/e-override-ejb/OrderManagementServices!OrderManagementServices.interfaces.OrderManagementServicesRemote");
+		
 		List<OrderLine> orderLines = proxy.findAllOrdersByCategory("TV");
 		for (OrderLine o : orderLines) {
 			System.out.println("The Order : "+o.getOrder().getId()+" -The Client_name : "+o.getOrder().getClient().getName()+"\n");
